@@ -9,6 +9,7 @@ import morgan from 'morgan';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { register } from './Controllers/Auth.js'
+import authRoutes from './Routes/Auth.js'
 
 // CONFIG
 dotenv.config();
@@ -37,9 +38,11 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage })
 
-// Routes
+// Routes with files
 // use middleware to upload locally
 app.post("/auth/register", upload.single("picture"), register);
+
+// ROUTES
 
 // Mongoose config
 const PORT = process.env.PORT || 6001
