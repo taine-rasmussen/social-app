@@ -10,9 +10,7 @@ import { useMemo } from 'react';
 
 function App() {
 
-  const state = useSelector(state => state)
-
-  console.log(state)
+  const mode = useSelector(state => state.mode)
 
   return (
     <div className="App">
