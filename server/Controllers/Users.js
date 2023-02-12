@@ -32,7 +32,6 @@ export const getUserFriends = async (req, res) => {
   }
 };
 
-
 export const addRemoveFriend = async (req, res) => {
   try {
     const { id, friendId } = req.params;
@@ -46,6 +45,9 @@ export const addRemoveFriend = async (req, res) => {
       user.friends.push(friendId)
       friend.friends.push(id)
     }
+
+    await user.save();
+    await friend.save();
 
   } catch (err) {
     res.status(404).json({ message: err.message });
