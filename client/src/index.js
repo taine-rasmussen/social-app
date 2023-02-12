@@ -24,13 +24,12 @@ const persistConfig = {  key: "root", storage, version: 1};
 const persistedReducer = persistReducer(persistConfig, authReducer);
 const store = configureStore({
   reducer: persistedReducer,
-    middleware: (getDefaultMiddleware) => {
+    middleware: (getDefaultMiddleware) => 
       getDefaultMiddleware({
         serializableCheck: {
           ignoredActions: [REHYDRATE, REGISTER, PERSIST, FLUSH, PAUSE, PURGE]
         }
       })
-    }
 });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
