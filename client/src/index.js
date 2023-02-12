@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import {
     persistReducer,
     persistStore,
-    REHYDRRATE,
+    REHYDRATE,
     REGISTER,
     PERSIST,
     FLUSH,
@@ -16,7 +16,7 @@ import {
     PURGE
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { Persistgate } from 'redux-persist/integration/react';
+import { PersistGate } from 'redux-persist/integration/react';
 
 // https://www.npmjs.com/package/redux-persist/v/5.5.0
 
@@ -27,7 +27,7 @@ const store = configureStore({
     middleware: (getDefaultMiddleware) => {
       getDefaultMiddleware({
         serializableCheck: {
-          ignoredActions: [REHYDRRATE, REGISTER, PERSIST, FLUSH, PAUSE, PURGE]
+          ignoredActions: [REHYDRATE, REGISTER, PERSIST, FLUSH, PAUSE, PURGE]
         }
       })
     }
@@ -37,9 +37,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Persistgate loading={null} persistor={persistStore(store)}>
+      <PersistGate loading={null} persistor={persistStore(store)}>
         <App />
-      </Persistgate>
+      </PersistGate>
     </Provider>
   </React.StrictMode>
 );
