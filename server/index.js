@@ -15,6 +15,12 @@ import morgan from 'morgan';
 import cors from 'cors';
 import path from 'path';
 
+import User from './Models/User.js'
+import Posts from './Models/Posts.js'
+import { users, posts } from './Data/index.js'
+import Post from './Models/Posts.js';
+
+
 // CONFIG
 dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
@@ -49,7 +55,7 @@ app.post('/post', verifyToken, upload.single("picture"), createPost)
 
 // ROUTES
 app.use('/auth', authRoutes);
-app.use('/users', userRoutes)
+app.use('/Postss', userRoutes)
 
 // Post routes
 app.post('/posts', postRoutes);
@@ -65,4 +71,7 @@ mongoose.connect(URL, {
   useUnifiedTopology: true,
 }).then(() => {
   app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
+  // One time inster of dummy data
+  // User.insertMany(users);
+  // Post.insertMany(posts);
 }).catch((error) => console.log(`${error} did not connect`))
