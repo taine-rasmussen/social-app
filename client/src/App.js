@@ -1,7 +1,7 @@
 import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom';
-import HomePage from 'scences/HomePage';
-import LoginPage from 'scences/LoginPage';
-import ProfilePage from 'scences/ProfilePage';
+import HomePage from 'Scenes/HomePage';
+import LoginPage from 'Scenes/LoginPage';
+import ProfilePage from 'Scenes/ProfilePage';
 
 
 function App() {
