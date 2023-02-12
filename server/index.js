@@ -71,7 +71,7 @@ mongoose.connect(URL, {
   useUnifiedTopology: true,
 }).then(() => {
   app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
-  // One time inster of dummy data
+  // One time inster of mock data
   // User.insertMany(users);
   // Post.insertMany(posts);
 }).catch((error) => console.log(`${error} did not connect`))
