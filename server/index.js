@@ -11,6 +11,9 @@ import { fileURLToPath } from 'url';
 import { register } from './Controllers/Auth.js'
 import authRoutes from './Routes/Auth.js'
 import userRoutes from './Routes/Users.js'
+import postRoutes from './Routes/Posts.js'
+import { verifyToken } from './Middleware/Auth.js';
+
 
 
 // CONFIG
@@ -43,10 +46,14 @@ const upload = multer({ storage })
 // Routes with files
 // use middleware to upload locally
 app.post("/auth/register", upload.single("picture"), register);
+app.post('/post', verifyToken, upload.single("picture"), createPost)
 
 // ROUTES
 app.use('/auth', authRoutes);
 app.use('/users', userRoutes)
+
+// Post routes
+app.post('/posts', postRoutes);
 
 // Mongoose config
 const PORT = process.env.PORT || 6001
