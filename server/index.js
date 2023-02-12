@@ -1,20 +1,18 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-;import mongoose from 'mongoose';
-import cors from 'cors';
-import * as dotenv from 'dotenv'
-import multer from 'multer';
-import helmet from 'helmet';
-import morgan from 'morgan';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import { register } from './Controllers/Auth.js'
-import authRoutes from './Routes/Auth.js'
-import userRoutes from './Routes/Users.js'
-import postRoutes from './Routes/Posts.js'
 import { verifyToken } from './Middleware/Auth.js';
-
-
+import { register } from './Controllers/Auth.js'
+import postRoutes from './Routes/Posts.js';
+import userRoutes from './Routes/Users.js';
+import authRoutes from './Routes/Auth.js';
+import bodyParser from 'body-parser';
+import { fileURLToPath } from 'url';
+import mongoose from 'mongoose';
+import express from 'express';
+import helmet from 'helmet';
+import dotenv from 'dotenv';
+import multer from 'multer';
+import morgan from 'morgan';
+import cors from 'cors';
+import path from 'path';
 
 // CONFIG
 dotenv.config();
