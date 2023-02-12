@@ -1,5 +1,5 @@
 import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom';
-import { CcssBaseLine, ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createTheme } from '@mui/material/styles';
 import ProfilePage from 'Scenes/ProfilePage';
 import { useSelector } from 'react-redux';
@@ -17,6 +17,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <ThemeProvider theme={theme}>
+          <CssBaseline />
           <Routes>
             <Route path='/' element={<LoginPage />}/>
             <Route path='/home' element={<HomePage />} />
