@@ -10,6 +10,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { register } from './Controllers/Auth.js'
 import authRoutes from './Routes/Auth.js'
+import userRoutes from './Routes/Users.js'
+
 
 // CONFIG
 dotenv.config();
