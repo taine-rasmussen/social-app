@@ -1,4 +1,4 @@
-import { createPost } from './Controllers/Post.js';
+import { createPost } from './Controllers/Posts.js';
 import { verifyToken } from './Middleware/Auth.js';
 import { register } from './Controllers/Auth.js'
 import postRoutes from './Routes/Posts.js';
