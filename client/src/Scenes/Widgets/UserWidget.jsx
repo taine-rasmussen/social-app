@@ -17,7 +17,7 @@ const UserWidget = ({ userId, picturePath }) => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
   const token = useDispatch((state) => state.token);
-  
+
   const { paletter } = useTheme();
   const dark = palette.neutral.dark
   const medium = palette.neutral.medium
@@ -49,8 +49,29 @@ const UserWidget = ({ userId, picturePath }) => {
 
   return (
     <WidgetWrapper>
-      <FlexBetween>
-
+      <FlexBetween
+        gap='0.5rem'
+        pb='1.1rem'
+        onClick={() => navigate(`/profile/${userdId}`)}
+      >
+        <FlexBetween>
+          <UserImage image={picturePath} />
+          <Box>
+            <Typography
+              variant='h4'
+              color={dark}
+              fontWeight='500'
+              sx={{
+                '&:hover': {
+                  color: palette.primary.light,
+                  cursor: 'pointer'
+                }
+              }}
+            >
+              {firstName} {lastName}
+            </Typography>
+          </Box>
+        </FlexBetween>
       </FlexBetween>
     </WidgetWrapper>
   )
