@@ -1,9 +1,9 @@
-import EditOutlinedIcon from '@mui/icons-material/EditOutlinedIcon'
-import { useNavigate } from 'react-router-dom'
-import { useDisptach } from 'react-redux'
-import { useState } from 'react'
-import { Formik } from 'formik'
-import * as yup from 'yup'
+import EditOutlinedIcon from '@mui/icons-material/EditOutlinedIcon';
+import { useNavigate } from 'react-router-dom';
+import { useDisptach } from 'react-redux';
+import { useState } from 'react';
+import { Formik } from 'formik';
+import * as yup from 'yup';
 import { 
   Box, 
   Button, 
@@ -11,10 +11,10 @@ import {
   useMediaQuery, 
   Typography, 
   useTheme 
-} from '@mui/material'
+} from '@mui/material';
 import { setLogin } from 'state';
 import DropZone from 'react-dropzone';
-import FlexBetween from 'Components/FlexBetween'
+import FlexBetween from 'Components/FlexBetween';
 
 const registerSchema = yup.object().shape({
   firstName: yup.string().required('required'),
@@ -49,6 +49,14 @@ const initialValueLogin = {
 
 
 const Form = () => {
+  const [pageType, setPageType] = useState('login');
+  const { paletter } = useTheme();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const isNonMobile = useMediaQuery('(min-width:600px)');
+  const isLogin = pageType === 'login';
+  const isRegister = pageType === 'register';
+
   return (
     <Box>
       
