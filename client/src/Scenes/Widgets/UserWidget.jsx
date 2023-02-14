@@ -33,15 +33,26 @@ const UserWidget = ({ userId, picturePath }) => {
     setUser(data);
   };
 
-  useEffect(
-    () => {
-      getUser();
-    }, [])
+  useEffect(() => getUser(), [])
+
+  if(!user)return null
+
+  const {
+    firstName,
+    lastName,
+    location,
+    occupation,
+    viewedProfile,
+    impressions,
+    friends
+  } = user;
+
+
 
   return (
-    <div>
+    <WidgetWrapper>
       
-    </div>
+    </WidgetWrapper>
   )
 };
 
