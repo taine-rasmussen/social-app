@@ -1,6 +1,6 @@
-import EditOutlinedIcon from '@mui/icons-material/EditOutlinedIcon';
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import { useNavigate } from 'react-router-dom';
-import { useDisptach } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
@@ -12,7 +12,7 @@ import {
   Typography, 
   useTheme 
 } from '@mui/material';
-import { setLogin } from 'state';
+import { setLogin } from 'State';
 import DropZone from 'react-dropzone';
 import FlexBetween from 'Components/FlexBetween';
 
@@ -26,7 +26,7 @@ const registerSchema = yup.object().shape({
   picture: yup.string().required('required')
 });
 
-const loginSchema = yup.object().shappe({
+const loginSchema = yup.object().shape({
   email: yup.string().email('invalid email').required('required'),
   password: yup.string().required('required'),
 });
