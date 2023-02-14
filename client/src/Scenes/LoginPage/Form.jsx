@@ -16,6 +16,7 @@ import {
 import { setLogin } from 'State';
 import Dropzone from 'react-dropzone';
 import FlexBetween from 'Components/FlexBetween';
+import { isAllOf } from "@reduxjs/toolkit";
 
 const registerSchema = yup.object().shape({
   firstName: yup.string().required('required'),
@@ -59,7 +60,52 @@ const Form = () => {
   const isRegister = pageType === 'register';
 
 
-  const handleFormSubmit = async (values, onSubmitProps) => {}
+  const register = async (values, onSubmitProps) => {
+    // Send form info with image
+    const formData = new FormData()
+    for(let value in values){
+      formData.append(value, values[value])
+    }
+    formData.append('picturePath', values.picture.name)
+    const saveUserResponse = await fetch(
+      'http://localhost:3001/auth/register',
+      {
+        method: 'POST',
+        body: formData
+      }
+    );
+    const savedUser = await saveUserResponse.json();
+    onSubmitProps.resetForm();
+    if(savedUser){
+      setPageType('login');
+    };
+  };
+
+  const login = async (values, onSubmitProps) => {
+     const loggedInResponse = await fetch(
+      'http://localhost:3001/auth/login',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify(values)
+      }
+    );
+    const loggedIn = await loggedInResponse.json()
+    onSubmitProps.resetForm();
+    if(loggedIn){
+      dispatch(
+        setLogin({
+          user: loggedIn.user,
+          token: loggedIn.token
+        })
+      );
+    }
+  };
+
+  const handleFormSubmit = async (values, onSubmitProps) => {
+    if(isLogin) await login(values, onSubmitProps);
+    if(isRegister) await register(values, onSubmitProps);
+  }
 
   return (
     <Formik
