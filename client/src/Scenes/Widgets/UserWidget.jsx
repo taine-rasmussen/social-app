@@ -24,10 +24,8 @@ const UserWidget = ({ userId, picturePath }) => {
   const main = palette.neutral.main
 
   const getUser = async () => {
-    console.log(token)
-    const response = await fetch(`http://localhost:3001/users/${userId}`,
-    {
-      method: 'GET',
+    const response = await fetch(`http://localhost:3001/users/${userId}`, {
+      method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await response.json();
@@ -56,7 +54,7 @@ const UserWidget = ({ userId, picturePath }) => {
       <FlexBetween
         gap='0.5rem'
         pb='1.1rem'
-        // onClick={() => navigate(`/profile/${userdId}`)}
+        onClick={() => navigate(`/profile/${userId}`)}
       >
         <FlexBetween>
           <UserImage image={picturePath} />

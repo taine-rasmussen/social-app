@@ -1,4 +1,4 @@
-import UserWidget from '../Widgets/UserWidget'
+import UserWidget from "Scenes/Widgets/UserWidget";
 import { useSelector } from "react-redux";
 import { Box } from "@mui/material";
 import NavBar from 'Scenes/NavBar'
@@ -10,10 +10,7 @@ const HomePage = () => {
   return (
     <Box>
       <NavBar />
-      <UserWidget
-        userId={_id}
-        picturePath={picturePath}
-      />
+      <UserWidget userId={_id} picturePath={picturePath} />
     </Box>
   )
 }
