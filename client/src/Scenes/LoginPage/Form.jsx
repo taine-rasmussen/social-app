@@ -66,6 +66,20 @@ const Form = () => {
       initialValues={isLogin ? initialValueLogin : initialValuesRegister}
       validationSchema={isLogin ? loginSchema : registerSchema}
     >
+      {({
+        values,
+        errors,
+        touched,
+        resetFrom,
+        handleBlur,
+        handleChange,
+        handleSubmit,
+        setFieldValue
+      }) => (
+        <form onSubmit={handleSubmit}>
+          
+        </form>
+      )}
       
     </Formik>
   )
