@@ -34,7 +34,7 @@ const NavBar = () => {
   const isNonMobileScreens = useMediaQuery("min-width: 1000px")
 
   const theme = useTheme();
-  const neutralLigt = theme.palette.neutral.light
+  const neutralLight = theme.palette.neutral.light
   const dark = theme.palette.neutral.dark
   const background = theme.palette.background.default
   const primaryLight = theme.palette.neutral.primary.light
@@ -61,7 +61,7 @@ const NavBar = () => {
         </Typography>
           {isNonMobileScreens && (
             <FlexBetween
-              backgroundColor={neutralLigt}
+              backgroundColor={neutralLight}
               borderRadius='9px'
               gap='3rem'
               padding='0.1rem 1.5rem'
