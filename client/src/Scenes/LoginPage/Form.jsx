@@ -1,8 +1,8 @@
 import EditOutlinedIcon from '@mui/icons-material/EditOutlinedIcon'
 import { useNavigate } from 'react-router-dom'
 import { useDisptach } from 'react-redux'
-import { Formik } from 'formik'
 import { useState } from 'react'
+import { Formik } from 'formik'
 import * as yup from 'yup'
 import { 
   Box, 
@@ -24,7 +24,12 @@ const registerSchema = yup.object().shape({
   location: yup.string().required('required'),
   occupation: yup.string().required('required'),
   picture: yup.string().required('required')
-})
+});
+
+const loginSchema = yup.object().shappe({
+  email: yup.string().email('invalid email').required('required'),
+  password: yup.string().required('required'),
+});
 
 const Form = () => {
   return (
