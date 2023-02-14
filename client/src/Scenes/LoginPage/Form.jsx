@@ -52,7 +52,7 @@ const initialValueLogin = {
 
 const Form = () => {
   const [pageType, setPageType] = useState('login');
-  const { paletter } = useTheme();
+  const { palette } = useTheme();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isNonMobile = useMediaQuery('(min-width:600px)');
@@ -99,7 +99,7 @@ const Form = () => {
           token: loggedIn.token
         })
       );
-      navigate('/home')
+      navigate('/home');
     }
   };
 
@@ -138,46 +138,46 @@ const Form = () => {
                 <TextField
                   label='First Name'
                   onBlur={handleBlur}
-                  onChnage={handleChange}
+                  onChange={handleChange}
                   value={values.firstName}
                   name='firstName'
                   error={Boolean(touched.firstName) && Boolean(errors.firstname)}
-                  helpText={touched.firstName && errors.firstName}
+                  helptext={touched.firstName && errors.firstName}
                   sx={{ gridColumn: 'span 2'}}
                 />
                 <TextField
                   label='Last Name'
                   onBlur={handleBlur}
-                  onChnage={handleChange}
+                  onChange={handleChange}
                   value={values.lastName}
                   name='lastName'
                   error={Boolean(touched.lastName) && Boolean(errors.lastname)}
-                  helpText={touched.lastName && errors.lastName}
+                  helptext={touched.lastName && errors.lastName}
                   sx={{ gridColumn: 'span 2'}}
                 />
                 <TextField
                   label='Loaction'
                   onBlur={handleBlur}
-                  onChnage={handleChange}
+                  onChange={handleChange}
                   value={values.loaction}
                   name='loaction'
                   error={Boolean(touched.loaction) && Boolean(errors.loaction)}
-                  helpText={touched.loaction && errors.loaction}
+                  helptext={touched.loaction && errors.loaction}
                   sx={{ gridColumn: 'span 4'}}
                 />
                 <TextField
                   label='Occupation'
                   onBlur={handleBlur}
-                  onChnage={handleChange}
+                  onChange={handleChange}
                   value={values.occupation}
                   name='occupation'
                   error={Boolean(touched.occupation) && Boolean(errors.occupation)}
-                  helpText={touched.occupation && errors.occupation}
+                  helptext={touched.occupation && errors.occupation}
                   sx={{ gridColumn: 'span 4'}}
                 />
                 <Box
                   gridColumn='span 4'
-                  border={`1px solid ${paletter.netrual.medium}`}
+                  border={`1px solid ${palette.netrual.medium}`}
                   borderRadius='5px'
                   p='1rem'
                 >
@@ -191,7 +191,7 @@ const Form = () => {
                     {({ getRootProps, getInputProps}) => (
                       <Box
                         {...getRootProps()}
-                        border={`2px dashed ${paletter.primary.main}`}
+                        border={`2px dashed ${palette.primary.main}`}
                         p='1rem'
                         sx={{ '&:hover': {cursor: 'pointer' }}}
                       >
@@ -213,22 +213,22 @@ const Form = () => {
             <TextField
               label='Email'
               onBlur={handleBlur}
-              onChnage={handleChange}
+              onChange={handleChange}
               value={values.email}
               name='email'
               error={Boolean(touched.email) && Boolean(errors.email)}
-              helpText={touched.email && errors.email}
+              helptext={touched.email && errors.email}
               sx={{ gridColumn: 'span 4'}}
             />
             <TextField
               label='Password'
               type='hidden'
               onBlur={handleBlur}
-              onChnage={handleChange}
+              onChange={handleChange}
               value={values.password}
               name='password'
               error={Boolean(touched.password) && Boolean(errors.password)}
-              helpText={touched.password && errors.password}
+              helptext={touched.password && errors.password}
               sx={{ gridColumn: 'span 4'}}
             />
           </Box>
@@ -240,9 +240,9 @@ const Form = () => {
               sx={{
                 m: '2rem 0',
                 p: '1rem',
-                backgroundColor: paletter.primary.main,
-                color: paletter.background.alt,
-                '&:hover': { color: paletter.primary.main }
+                backgroundColor: palette.primary.main,
+                color: palette.background.alt,
+                '&:hover': { color: palette.primary.main }
               }}
             >
               {isLogin ? "LOGIN" : "REGISTER"}
@@ -253,10 +253,10 @@ const Form = () => {
                 }}
                 sx={{
                   textDecoration: 'underline',
-                  color: paletter.primary.main,
+                  color: palette.primary.main,
                   '&:hover': {
                     cursor: 'pointer',
-                    color: paletter.primary.light
+                    color: palette.primary.light
                   },
                 }}
               >
