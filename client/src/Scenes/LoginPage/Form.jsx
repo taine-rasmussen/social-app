@@ -14,7 +14,7 @@ import {
   TextField
 } from '@mui/material';
 import { setLogin } from 'State';
-import DropZone from 'react-dropzone';
+import Dropzone from 'react-dropzone';
 import FlexBetween from 'Components/FlexBetween';
 
 const registerSchema = yup.object().shape({
@@ -116,7 +116,7 @@ const Form = () => {
                   name='loaction'
                   error={Boolean(touched.loaction) && Boolean(errors.loaction)}
                   helpText={touched.loaction && errors.loaction}
-                  sx={{ gridColumn: 'span 2'}}
+                  sx={{ gridColumn: 'span 4'}}
                 />
                 <TextField
                   label='Occupation'
@@ -126,8 +126,41 @@ const Form = () => {
                   name='occupation'
                   error={Boolean(touched.occupation) && Boolean(errors.occupation)}
                   helpText={touched.occupation && errors.occupation}
-                  sx={{ gridColumn: 'span 2'}}
+                  sx={{ gridColumn: 'span 4'}}
                 />
+                <Box
+                  gridColumn='span 4'
+                  border={`1px solid ${paletter.netrual.medium}`}
+                  borderRadius='5px'
+                  p='1rem'
+                >
+                  <Dropzone
+                    acceptFiles='.jpg,.jpeg,.png'
+                    multiple={false}
+                    onDrop={(accecptedFiles) => 
+                      setFieldValue('picture', accecptedFiles[0])
+                    }
+                  >
+                    {({ getRootProps, getInputProps}) => (
+                      <Box
+                        {...getRootProps()}
+                        border={`2px dashed ${paletter.primary.main}`}
+                        p='1rem'
+                        sx={{ '&:hover': {cursor: 'pointer' }}}
+                      >
+                        <input {...getInputProps()} />
+                        {!values.picture? (
+                          <p>Add Picture Here</p>
+                        ) : (
+                          <FlexBetween>
+                            <Typography>{values.picture.name}</Typography>
+                            <EditOutlinedIcon />
+                          </FlexBetween>
+                        )}
+                      </Box>
+                    )}
+                  </Dropzone>
+                </Box>
               </>
             )}
           </Box>
