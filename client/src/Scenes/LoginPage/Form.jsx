@@ -10,7 +10,8 @@ import {
   TestField, 
   useMediaQuery, 
   Typography, 
-  useTheme 
+  useTheme, 
+  TextField
 } from '@mui/material';
 import { setLogin } from 'State';
 import DropZone from 'react-dropzone';
@@ -77,10 +78,41 @@ const Form = () => {
         setFieldValue
       }) => (
         <form onSubmit={handleSubmit}>
-          
+          <Box 
+            display='grid'
+            gap='30px'
+            gridTemplateColumns='repeat(4, minmax(0, 1fr))'
+            sx={{
+              '& > div': { gridColumn: isNonMobile ? undefiend : 'span 4' }
+            }}
+          >
+            {isRegister && (
+              <>
+                <TextField
+                  label='First Name'
+                  onBlur={handleBlur}
+                  onChnage={handleChange}
+                  value={values.firstName}
+                  name='firstName'
+                  error={Boolean(touched.firstName) && Boolean(errors.firstname)}
+                  helpText={touched.firstName && errors.firstName}
+                  sx={{ gridColumn: 'span 2'}}
+                />
+                <TextField
+                  label='Last Name'
+                  onBlur={handleBlur}
+                  onChnage={handleChange}
+                  value={values.lastName}
+                  name='lastName'
+                  error={Boolean(touched.lastName) && Boolean(errors.lastname)}
+                  helpText={touched.lastName && errors.lastName}
+                  sx={{ gridColumn: 'span 2'}}
+                />
+              </>
+            )}
+          </Box>
         </form>
       )}
-      
     </Formik>
   )
 }
