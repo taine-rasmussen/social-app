@@ -31,6 +31,23 @@ const loginSchema = yup.object().shappe({
   password: yup.string().required('required'),
 });
 
+const initialValuesRegister = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  password: '',
+  location: '',
+  occupation: '',
+  picture: '',
+};
+
+const initialValueLogin = {
+  email: '',
+  password: ''
+};
+
+
+
 const Form = () => {
   return (
     <Box>
