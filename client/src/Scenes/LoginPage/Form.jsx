@@ -222,7 +222,7 @@ const Form = () => {
             />
             <TextField
               label='Password'
-              type='hidden'
+              type='password'
               onBlur={handleBlur}
               onChange={handleChange}
               value={values.password}
@@ -246,6 +246,7 @@ const Form = () => {
               }}
             >
               {isLogin ? "LOGIN" : "REGISTER"}
+            </Button>
               <Typography
                 onClick={() => {
                   setPageType(isLogin ? 'register' : 'login')
@@ -256,7 +257,7 @@ const Form = () => {
                   color: palette.primary.main,
                   '&:hover': {
                     cursor: 'pointer',
-                    color: palette.primary.light
+                    color: palette.primary.dark
                   },
                 }}
               >
@@ -264,7 +265,6 @@ const Form = () => {
                   ? "Don't have an account? Sign up here."
                   : "Already have an account? Login here."}
               </Typography>
-            </Button>
           </Box>
         </form>
       )}
