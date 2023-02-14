@@ -141,7 +141,10 @@ const NavBar = () => {
             </IconButton>
           </Box>
             <FlexBetween display='flex' flexDirection='column' justifyContent='center' alignItems='center' gap='3rem'>
-            <IconButton onClick={() => dispatch(setMode())}>
+            <IconButton 
+              onClick={() => dispatch(setMode())}
+              x={{ fontSize: '25px'}}
+            >
               {theme.palette.mode === 'dark' ? (
                 <DarkMode sx={{ fontSize: '25px'}} />
               ) : (
