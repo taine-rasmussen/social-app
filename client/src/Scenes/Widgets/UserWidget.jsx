@@ -16,14 +16,15 @@ import {
 const UserWidget = ({ userId, picturePath }) => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
-  const token = useDispatch((state) => state.token);
+  const token = useSelector((state) => state.token);
 
-  const { paletter } = useTheme();
+  const { palette } = useTheme();
   const dark = palette.neutral.dark
   const medium = palette.neutral.medium
   const main = palette.neutral.main
 
   const getUser = async () => {
+    console.log(token)
     const response = await fetch(`http://localhost:3001/users/${userId}`,
     {
       method: 'GET',
@@ -33,7 +34,10 @@ const UserWidget = ({ userId, picturePath }) => {
     setUser(data);
   };
 
-  useEffect(() => getUser(), [])
+  useEffect(
+    () => {
+      getUser();
+    }, [])
 
   if(!user)return null
 
@@ -52,7 +56,7 @@ const UserWidget = ({ userId, picturePath }) => {
       <FlexBetween
         gap='0.5rem'
         pb='1.1rem'
-        onClick={() => navigate(`/profile/${userdId}`)}
+        // onClick={() => navigate(`/profile/${userdId}`)}
       >
         <FlexBetween>
           <UserImage image={picturePath} />
