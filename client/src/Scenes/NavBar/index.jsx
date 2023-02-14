@@ -101,7 +101,12 @@ const NavBar = () => {
                   backgroundColor: neutralLight
                 }
               }}
+              input={<InputBase />}
             >
+              <MenuItem value={fullName}>
+                <Typography>{fullName}</Typography>
+              </MenuItem>
+              <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem>
             </Select>
           </FormControl>
         </FlexBetween>
