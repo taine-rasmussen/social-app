@@ -163,6 +163,61 @@ const Form = () => {
                 </Box>
               </>
             )}
+            <TextField
+              label='Email'
+              onBlur={handleBlur}
+              onChnage={handleChange}
+              value={values.email}
+              name='email'
+              error={Boolean(touched.email) && Boolean(errors.email)}
+              helpText={touched.email && errors.email}
+              sx={{ gridColumn: 'span 4'}}
+            />
+            <TextField
+              label='Password'
+              type='hidden'
+              onBlur={handleBlur}
+              onChnage={handleChange}
+              value={values.password}
+              name='password'
+              error={Boolean(touched.password) && Boolean(errors.password)}
+              helpText={touched.password && errors.password}
+              sx={{ gridColumn: 'span 4'}}
+            />
+          </Box>
+          {/* Buttons */}
+          <Box>
+            <Button
+              fullWidth
+              type='submit'
+              sx={{
+                m: '2rem 0',
+                p: '1rem',
+                backgroundColor: paletter.primary.main,
+                color: paletter.background.alt,
+                '&:hover': { color: paletter.primary.main }
+              }}
+            >
+              {isLogin ? "LOGIN" : "REGISTER"}
+              <Typography
+                onClick={() => {
+                  setPageType(isLogin ? 'register' : 'login')
+                  resetFrom()
+                }}
+                sx={{
+                  textDecoration: 'underline',
+                  color: paletter.primary.main,
+                  '&:hover': {
+                    cursor: 'pointer',
+                    color: paletter.primary.light
+                  },
+                }}
+              >
+                {isLogin 
+                  ? "Don't have an account? Sign up here."
+                  : "Already have an account? Login here."}
+              </Typography>
+            </Button>
           </Box>
         </form>
       )}
