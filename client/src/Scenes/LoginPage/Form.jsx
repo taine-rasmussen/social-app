@@ -57,10 +57,17 @@ const Form = () => {
   const isLogin = pageType === 'login';
   const isRegister = pageType === 'register';
 
+
+  const handleFormSubmit = async (values, onSubmitProps) => {}
+
   return (
-    <Box>
+    <Formik
+      onSubmit={handleFormSubmit}
+      initialValues={isLogin ? initialValueLogin : initialValuesRegister}
+      validationSchema={isLogin ? loginSchema : registerSchema}
+    >
       
-    </Box>
+    </Formik>
   )
 }
 
