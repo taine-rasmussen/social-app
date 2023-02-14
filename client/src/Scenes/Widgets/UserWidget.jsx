@@ -47,11 +47,11 @@ const UserWidget = ({ userId, picturePath }) => {
     friends
   } = user;
 
-
-
   return (
     <WidgetWrapper>
-      
+      <FlexBetween>
+
+      </FlexBetween>
     </WidgetWrapper>
   )
 };
