@@ -108,6 +108,26 @@ const Form = () => {
                   helpText={touched.lastName && errors.lastName}
                   sx={{ gridColumn: 'span 2'}}
                 />
+                <TextField
+                  label='Loaction'
+                  onBlur={handleBlur}
+                  onChnage={handleChange}
+                  value={values.loaction}
+                  name='loaction'
+                  error={Boolean(touched.loaction) && Boolean(errors.loaction)}
+                  helpText={touched.loaction && errors.loaction}
+                  sx={{ gridColumn: 'span 2'}}
+                />
+                <TextField
+                  label='Occupation'
+                  onBlur={handleBlur}
+                  onChnage={handleChange}
+                  value={values.occupation}
+                  name='occupation'
+                  error={Boolean(touched.occupation) && Boolean(errors.occupation)}
+                  helpText={touched.occupation && errors.occupation}
+                  sx={{ gridColumn: 'span 2'}}
+                />
               </>
             )}
           </Box>
