@@ -22,7 +22,7 @@ import {
   InputBase,
   useTheme,
   Button,
-  Divder,
+  Divider,
   Box
 } from '@mui/material';
 
@@ -60,6 +60,9 @@ const MyPostWidget = ({ picturePath }) => {
     setImage(null)
     setPost('')
   };
+
+
+  console.log(isImage)
 
   return (
     <WidgetWrapper>
@@ -123,6 +126,26 @@ const MyPostWidget = ({ picturePath }) => {
           </Dropzone>
         </Box>
       )}
+
+      <Divider sx={{ margin: '1.25rem 0' }} />
+
+      <FlexBetween>
+        <FlexBetween
+          gap='0.25rem'
+          onClick={() => setIsImage(!isImage)}
+        >
+          <ImageOutlined sx={{ color: mediumMain }} />
+          <Typography
+            color={mediumMain}
+            sx={{
+              '&:hover': { cursor: 'pointer', color: medium }
+            }}
+          >
+            Image
+          </Typography>
+        </FlexBetween>
+      </FlexBetween>
+
     </WidgetWrapper>
   )
 }
