@@ -34,15 +34,18 @@ const MyPostWidget = ({ picturePath }) => {
     const formData = new FormData();
     formData.append('userId', _id);
     formData.append('description', post);
+
     if(image){
       formData.append('picture', image)
       formData.append('picturePath', image.name)
     };
+
     const response = await fetch('https://locahost:3001/posts', {
       method: 'POST',
       header: { Authorization: `Bearer ${token}` },
       body: formData
-    })
+    });
+
     const post = await response.json();
     dispatch(setPosts({ post }))
     setImage(null)
@@ -50,12 +53,23 @@ const MyPostWidget = ({ picturePath }) => {
   };
 
 
-
-
   return (
-    <div>
-      
-    </div>
+    <WidgetWrapper>
+      <FlexBetween gap='1.5rem'>
+        <UserImage image={picturePath} />
+        <InputBase 
+          placeholder="What's on your mind..."
+          onChange={(e) => setPost(e.target.value)}
+          value={post}
+          sx={{
+            width: '100%',
+            backgroundColor: palette.neutral.light,
+            borderRadius: '2rem',
+            padding: '1rem 2rem'
+          }}
+        />
+      </FlexBetween>
+    </WidgetWrapper>
   )
 }
 
