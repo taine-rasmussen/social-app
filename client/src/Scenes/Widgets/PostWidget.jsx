@@ -7,9 +7,9 @@ import { setPost } from 'State';
 import {
   Box,
   Divider,
-  Typograpghy,
   Typography,
-  useTheme
+  useTheme,
+  IconButton
 } from '@mui/material';
 import {
   ChatBubbleOutlineOutlined,
@@ -72,7 +72,7 @@ const PostWidget = (props) => {
         subtitle={location}
         userPicturePath={userPicturePath}
       />
-      <Typography color={main} sx={{ mt: '1rem' }}>
+      <Typography color={primary} sx={{ mt: '1rem' }}>
         {description}
       </Typography>
       {picturePath && (
@@ -81,7 +81,7 @@ const PostWidget = (props) => {
           height='auto'
           alt='post'
           style={{ borderRadius: '0.75rem', marginTop: '0.75rem' }}
-          scr={`https://localhost:3001/assets/${picturePath}`}
+          scr={`http://localhost:3001/assets/${picturePath}`}
         />
       )}
       <FlexBetween mt='0.25rem'>
@@ -114,7 +114,7 @@ const PostWidget = (props) => {
           {comments.map((comment, i) => (
             <Box key={`${name}-${i}`}>
               <Divider />
-              <Typography sx={{ color: main, m: '0.5rem 0', pl: '1rem' }}>
+              <Typography sx={{ color: primary, m: '0.5rem 0', pl: '1rem' }}>
                 {comment}
               </Typography>
             </Box>
