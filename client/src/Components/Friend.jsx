@@ -7,6 +7,7 @@ import {
   Box,
   IconButton,
   Typograpghy,
+  Typography,
   useTheme
 } from '@mui/material';
 import {
@@ -47,10 +48,40 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
 
   return (
     <FlexBetween>
-      <FlexBetween>
-
+      <FlexBetween gap='1rem'>
+        <UserImage image={userPicturePath} size='55px' />
+        <Box
+          onClick={() => {
+            navigate(`/profile/${friendId}`);
+            // Nav from friend to friend profile gross temp fix
+            navigate(0);
+          }}
+        >
+          <Typography
+            color={main}
+            variamt='h5'
+            fontWeight='500'
+            sx={{
+              '&:hover': {
+                color: primaryLight,
+                cursor: 'pointer'
+              }
+            }}
+          >
+            {name}
+          </Typography>
+          <Typography
+            color={medium}
+            fontSize='0.75rem'
+          >
+            {subtitle}
+          </Typography>
+        </Box>
       </FlexBetween>
-    </FlexBetween>
+      <IconButton>
+
+      </IconButton>
+    </FlexBetween >
   )
 }
 
