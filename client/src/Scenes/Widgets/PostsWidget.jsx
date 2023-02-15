@@ -18,6 +18,16 @@ const PostsWidget = ({ useId, isProfile = false }) => {
     dispatch(setPosts({ posts: data }));
   };
 
+  const getUserPosts = async () => {
+    const response = await fetch(`https://localhost:3001/posts/${userId}`, {
+      method: 'GET',
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    const data = await response.json();
+    dispatch(setPosts({ posts: data }));
+  };
+
+
 
   return (
     <div>
