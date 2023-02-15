@@ -74,8 +74,9 @@ const UserWidget = ({ userId, picturePath }) => {
             </Typography>
             <Typography color={medium}>{friends.length} Friends</Typography>
           </Box>
-          <ManageAccountsOutlined />
         </FlexBetween>
+        <ManageAccountsOutlined />
+      </FlexBetween>
 
         <Divider />
 
@@ -99,6 +100,8 @@ const UserWidget = ({ userId, picturePath }) => {
           </Box>
         </Box>
 
+        <Divider />
+
         <Box p='1rem 0'>
           <FlexBetween mb='0.5rem'>
             <Typography color={medium}>Who's viewed your profile</Typography>
@@ -109,6 +112,8 @@ const UserWidget = ({ userId, picturePath }) => {
             <Typography color={main} fontWeight='500'>{impressions}</Typography>
           </FlexBetween>
         </Box>
+
+        <Divider />
 
         <Box p='1rem 0'>
           <Typography
@@ -144,10 +149,7 @@ const UserWidget = ({ userId, picturePath }) => {
                 </FlexBetween>
                 <EditOutlined sx={{ color: main }} />
             </FlexBetween>
-
-
         </Box>
-      </FlexBetween>
     </WidgetWrapper>
   )
 };
