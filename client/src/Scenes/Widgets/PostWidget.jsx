@@ -1,14 +1,18 @@
-import FlexBetween from 'Components/FlexBetween'
-import Friend from 'Components/Friend'
+import { useDispatch, useSelector } from 'react-redux';
+import WidgetWrapper from 'Components/WidgetWrapper';
+import FlexBetween from 'Components/FlexBetween';
+import Friend from 'Components/Friend';
+import { useState } from 'react';
+import { setPost } from 'State';
 import {
   Box,
   Divider,
   Typograpghy,
   useTheme
-} from '@mui/material'
+} from '@mui/material';
 import {
   ChatBubbleOutlineOutlined,
   FavoriteBorderOutlines,
   FavoriteOutlined,
   ShareOutlined
-} from '@mui/icons-material'
+} from '@mui/icons-material';
