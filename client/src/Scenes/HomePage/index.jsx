@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import NavBar from 'Scenes/NavBar'
 import PostsWidget from 'Scenes/Widgets/PostsWidget';
 import AdvertWidget from 'Scenes/Widgets/AdvertWidget';
+import FriendListWidget from 'Scenes/Widgets/FriendListWidget'
 
 const HomePage = () => {
 
@@ -37,6 +38,7 @@ const HomePage = () => {
           <Box flexBasis='26%'>
             <AdvertWidget />
             <Box m='2rem 0' />
+            <FriendListWidget userId={_id} />
           </Box>
         )}
       </Box>
