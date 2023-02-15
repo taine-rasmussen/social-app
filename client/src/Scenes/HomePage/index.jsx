@@ -4,15 +4,12 @@ import { Box, useMediaQuery } from "@mui/material";
 import { useSelector } from "react-redux";
 import NavBar from 'Scenes/NavBar'
 import PostsWidget from 'Scenes/Widgets/PostsWidget';
+import AdvertWidget from 'Scenes/Widgets/AdvertWidget';
 
 const HomePage = () => {
 
   const isNonMobileScreens = useMediaQuery('(min-width:1000px)')
   const { _id, picturePath } = useSelector((state) => state.user)
-  const user = useSelector((state) => state.user)
-
-  console.log(user)
-
 
   return (
     <Box>
@@ -38,6 +35,8 @@ const HomePage = () => {
         </Box>
         {isNonMobileScreens && (
           <Box flexBasis='26%'>
+            <AdvertWidget />
+            <Box m='2rem 0' />
           </Box>
         )}
       </Box>

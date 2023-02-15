@@ -39,7 +39,7 @@ const PostWidget = (props) => {
 
   const [isComments, setIsComments] = useState(false)
   const dispatch = useDispatch();
-  const { token } = useSelector((state) => state.token);
+  const token = useSelector((state) => state.token);
   const loggedInUserId = useSelector((state) => state.user._id);
 
   // Checks to see if id is present in likes map
@@ -52,16 +52,15 @@ const PostWidget = (props) => {
 
   const patchLike = async () => {
     const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {
-      method: 'PATCH',
+      method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ userId: loggedInUserId })
-    })
-
-    const updatedPost = await response.json()
-    dispatch(setPost({ post: updatedPost }))
+      body: JSON.stringify({ userId: loggedInUserId }),
+    });
+    const updatedPost = await response.json();
+    dispatch(setPost({ post: updatedPost }));
   };
 
   return (
