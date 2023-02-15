@@ -80,9 +80,9 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
         sx={{ backgroundColor: primaryLight, p: '0.6rem' }}
       >
         {isFriend ? (
-          <PersonRemoveOutlined sx={{ color: primaryLight }} />
+          <PersonRemoveOutlined />
         ) : (
-          <PersonAddOutlined sx={{ color: primaryLight }} />
+          <PersonAddOutlined />
         )}
       </IconButton>
     </FlexBetween >
