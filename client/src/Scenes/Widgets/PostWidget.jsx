@@ -63,9 +63,6 @@ const PostWidget = (props) => {
     dispatch(setPost({ post: updatedPost }));
   };
 
-
-  console.log(isComments)
-
   return (
     <WidgetWrapper m='2rem 0'>
       <Friend

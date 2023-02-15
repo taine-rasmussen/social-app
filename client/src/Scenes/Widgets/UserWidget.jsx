@@ -41,12 +41,12 @@ const UserWidget = ({ userId, picturePath }) => {
   if (!user) return null
 
   const {
-    firstName,
-    lastName,
-    location,
-    occupation,
     viewedProfile,
     impressions,
+    occupation,
+    firstName,
+    lastName,
+    location
   } = user;
 
   return (
