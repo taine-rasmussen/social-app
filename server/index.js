@@ -55,10 +55,8 @@ app.post('/post', verifyToken, upload.single("picture"), createPost)
 
 // ROUTES
 app.use('/auth', authRoutes);
-app.use('/Postss', userRoutes)
-
-// Post routes
-app.post('/posts', postRoutes);
+app.use('/users', userRoutes)
+app.use('/posts', postRoutes);
 
 // Mongoose config
 const PORT = process.env.PORT || 6001
