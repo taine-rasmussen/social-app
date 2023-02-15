@@ -43,13 +43,25 @@ const PostWidget = (props) => {
 
   // Checks to see if id is present in likes map
   const isLiked = Boolean(likes[loggedInUserId]);
+  const likeCount = Object.keys(likes).length
 
   const { palette } = useTheme();
-  const primaryLight = palette.primary.light;
-  const primaryDark = palette.primary.dark;
-  const main = palette.neutral.main;
+  const primary = palette.primary.main;
   const medium = palette.neutral.medium;
 
+  const patchLike = async () => {
+    const response = await fetch(`https://localhost:3001/posts/${postId}/like`, {
+      method: 'PATCH',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ userId: loggedInUserId })
+    })
+
+    const updatedPost = await response.json()
+    dispatch(setPost({ post: updatedPost }))
+  };
 
   return (
     <FlexBetween>
