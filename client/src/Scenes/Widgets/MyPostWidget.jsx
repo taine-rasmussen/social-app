@@ -61,9 +61,6 @@ const MyPostWidget = ({ picturePath }) => {
     setPost('')
   };
 
-
-  console.log(isImage)
-
   return (
     <WidgetWrapper>
       <FlexBetween gap='1.5rem'>
