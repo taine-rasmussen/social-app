@@ -14,6 +14,7 @@ import {
   EditOutlined,
   MicOutlined,
   FaxRounded,
+  PlayCircleFilledWhiteOutlined,
 } from '@mui/icons-material'
 import {
   useMediaQuery,
@@ -33,7 +34,7 @@ const MyPostWidget = ({ picturePath }) => {
   const [post, setPost] = useState('');
   const { _id } = useSelector((state) => state.user);
   const token = useSelector((state) => state.token);
-  const isNonMobileScreens = useMediaQuery('(min-max:1000px)')
+  const isNonMobileScreens = useMediaQuery('(min-width:1000px)')
 
   const { palette } = useTheme();
   const mediumMain = palette.neutral.mediumMain;
@@ -141,8 +142,42 @@ const MyPostWidget = ({ picturePath }) => {
             Image
           </Typography>
         </FlexBetween>
-      </FlexBetween>
 
+        {isNonMobileScreens ? (
+          <>
+            <FlexBetween gap='0.25rem'>
+              <GifBoxOutlined sx={{ color: mediumMain }} />
+              <Typography color={mediumMain}>Clip</Typography>
+            </FlexBetween>
+
+            <FlexBetween gap='0.25rem'>
+              <AttachFileOutlined sx={{ color: mediumMain }} />
+              <Typography color={mediumMain}>Attachment</Typography>
+            </FlexBetween>
+
+            <FlexBetween gap='0.25rem'>
+              <MicOutlined sx={{ color: mediumMain }} />
+              <Typography color={mediumMain}>Audio</Typography>
+            </FlexBetween>
+          </>
+        ) : (
+          <FlexBetween gap='0.25rem'>
+            <MoreHorizOutlined sx={{ color: mediumMain }} />
+          </FlexBetween>
+        )}
+
+        <Button
+          disabled={!post}
+          onClick={handlePost}
+          sx={{
+            color: palette.background.alt,
+            backgroundColor: palette.primary.main,
+            borderRadius: '3rem'
+          }}
+        >
+          POST
+        </Button>
+      </FlexBetween>
     </WidgetWrapper>
   )
 }
