@@ -44,9 +44,9 @@ const FriendListWidget = ({ userId }) => {
         flexDirection='column'
         gap='1.5rem'
       >
-        {friends.map((friend) => (
+        {friends.map((friend, i) => (
           <Friend
-            key={friend._id}
+            key={`${friend._id}-${i}`}
             friend={friend._id}
             name={`${friend.firstName} ${friend.lastName}`}
             subtitle={friend.occupation}
