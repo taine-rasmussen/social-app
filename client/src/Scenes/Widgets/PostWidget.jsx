@@ -63,6 +63,9 @@ const PostWidget = (props) => {
     dispatch(setPost({ post: updatedPost }));
   };
 
+
+  console.log(isComments)
+
   return (
     <WidgetWrapper m='2rem 0'>
       <Friend
@@ -108,7 +111,7 @@ const PostWidget = (props) => {
           <ShareOutlined />
         </IconButton>
       </FlexBetween>
-      {isComments & (
+      {isComments && (
         <Box mt='0.5rem'>
           {comments.map((comment, i) => (
             <Box key={`${name}-${i}`}>
