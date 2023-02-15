@@ -17,6 +17,12 @@ import {
   ShareOutlined
 } from '@mui/icons-material';
 
+// Models map structure - if user hasn't liked the id will not be present
+// likes = {
+//   userId1: true,
+//   userId2: true,
+// }
+
 const PostWidget = (props) => {
   const {
     userPicturePath,
@@ -30,11 +36,25 @@ const PostWidget = (props) => {
     name,
   } = props;
 
+  const [isComments, setIsComments] = useState(false)
+  const dispatch = useDispatch();
+  const { token } = useSelector((state) => state.token);
+  const loggedInUserId = useSelector((state) => state.user._id);
+
+  // Checks to see if id is present in likes map
+  const isLiked = Boolean(likes[loggedInUserId]);
+
+  const { palette } = useTheme();
+  const primaryLight = palette.primary.light;
+  const primaryDark = palette.primary.dark;
+  const main = palette.neutral.main;
+  const medium = palette.neutral.medium;
+
 
   return (
-    <div>
+    <FlexBetween>
 
-    </div>
+    </FlexBetween>
   )
 }
 
