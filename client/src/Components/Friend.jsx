@@ -6,13 +6,12 @@ import { setFriends } from 'State';
 import {
   Box,
   IconButton,
-  Typograpghy,
   Typography,
   useTheme
 } from '@mui/material';
 import {
   PersonAddOutlined,
-  PersonRemovedOutlined
+  PersonRemoveOutlined
 } from '@mui/icons-material';
 
 const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
@@ -28,7 +27,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const main = palette.neutral.main;
   const medium = palette.neutral.medium;
 
-  const isFriend = friends.find((friend) => friend._id === friendId);
+  const isFriend = friends ? friends.find((friend) => friend._id === friendId) : []
 
   const patchFriend = async () => {
     const response = await fetch(`https://localhost:3001/${_id}/${friendId}`,
@@ -81,7 +80,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
         sx={{ backgroundColor: primaryLight, p: '0.6rem' }}
       >
         {isFriend ? (
-          <PersonRemovedOutlined sx={{ color: primaryLight }} />
+          <PersonRemoveOutlined sx={{ color: primaryLight }} />
         ) : (
           <PersonAddOutlined sx={{ color: primaryLight }} />
         )}
