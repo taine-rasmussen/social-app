@@ -58,7 +58,7 @@ const UserWidget = ({ userId, picturePath }) => {
       >
         <FlexBetween>
           <UserImage image={picturePath} />
-          <Box>
+          <Box p='1rem'>
             <Typography
               variant='h4'
               color={dark}
