@@ -1,16 +1,29 @@
-import UserWidget from "Scenes/Widgets/UserWidget";
+import UserWidget from 'Scenes/Widgets/UserWidget'
+import { Box, useMediaQuery } from "@mui/material";
 import { useSelector } from "react-redux";
-import { Box } from "@mui/material";
 import NavBar from 'Scenes/NavBar'
 
 const HomePage = () => {
 
-  const { _id, picturePath } = useSelector((state) => state.user);
+  const isNonMobileScreens = useMediaQuery('(min-width:1000px)')
+  const { _id, picturePath } = useSelector((state) => state.user)
 
   return (
     <Box>
       <NavBar />
-      <UserWidget userId={_id} picturePath={picturePath} />
+      <Box
+        width='100%'
+        padding='2rem 6%'
+        display={ isNonMobileScreens ? 'flex' : 'block' }
+        gap='0.5rem'
+        justifyContent='space-between'
+      >
+        <Box
+          flexBasis={isNonMobileScreens ? '26%' : undefined }
+        >
+          <UserWidget userId={_id} picturePath={picturePath} />
+        </Box>
+      </Box>
     </Box>
   )
 }
