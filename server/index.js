@@ -38,10 +38,10 @@ app.use("/assets", express.static(path.join(__dirname, "public/assets")));
 // File storage config
 // https://github.com/expressjs/multer
 const storage = multer.diskStorage({
-  destination: function (req, file, cb){
+  destination: function (req, file, cb) {
     cb(null, "public/assets");
   },
-  filename: function (req, file, cb){
+  filename: function (req, file, cb) {
     cb(null, file.originalname)
   }
 });
@@ -51,7 +51,7 @@ const upload = multer({ storage })
 // Routes with files
 // use middleware to upload locally
 app.post("/auth/register", upload.single("picture"), register);
-app.post('/post', verifyToken, upload.single("picture"), createPost)
+app.post("/posts", verifyToken, upload.single("picture"), createPost);
 
 // ROUTES
 app.use('/auth', authRoutes);
