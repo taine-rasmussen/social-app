@@ -27,8 +27,27 @@ const MyPostWidget = ({ picturePath }) => {
   const isNonMobileScreens = useMediaQuery('(min-max:1000px)')
   
   const { palette } = useTheme();
-  const mediumMain = paletter.neutral.mediumMain
-  const medium = paletter.neutral.medium
+  const mediumMain = paletter.neutral.mediumMain;
+  const medium = paletter.neutral.medium;
+
+  const handlePost = async () => {
+    const formData = new FormData();
+    formData.append('userId', _id);
+    formData.append('description', post);
+    if(image){
+      formData.append('picture', image)
+      formData.append('picturePath', image.name)
+    };
+    const response = await fetch('https://locahost:3001/posts', {
+      method: 'POST',
+      header: { Authorization: `Bearer ${token}` },
+      body: formData
+    })
+    const post = await response.json();
+    dispatch(setPosts({ post }))
+    setImage(null)
+    setPost('')
+  };
 
 
 
