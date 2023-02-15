@@ -16,3 +16,26 @@ import {
   FavoriteOutlined,
   ShareOutlined
 } from '@mui/icons-material';
+
+const PostWidget = (props) => {
+  const {
+    userPicturePath,
+    description,
+    picturePath,
+    postUserId,
+    location,
+    comments,
+    postId,
+    likes,
+    name,
+  } = props;
+
+
+  return (
+    <div>
+
+    </div>
+  )
+}
+
+export default PostWidget
