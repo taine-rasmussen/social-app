@@ -17,7 +17,22 @@ import {
 } from '@mui/icons-material'
 import { Box, Divder, Typography, InputBase, useTheme, Button, IconButton, useMediaQuery } from '@mui/material';
 
-const MyPostWidget = () => {
+const MyPostWidget = ({ picturePath }) => {
+  const dispatch = useDispatch();
+  const [isImage, setIsImage] = useState(false);
+  const [image, setImage] = useState(null);
+  const [post, setPost] = useState('');
+  const { _id } = useSelector((state) => state.user);
+  const token = useSelector((state) => state.token);
+  const isNonMobileScreens = useMediaQuery('(min-max:1000px)')
+  
+  const { palette } = useTheme();
+  const mediumMain = paletter.neutral.mediumMain
+  const medium = paletter.neutral.medium
+
+
+
+
   return (
     <div>
       
