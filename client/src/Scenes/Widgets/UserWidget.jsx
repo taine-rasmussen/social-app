@@ -17,7 +17,7 @@ const UserWidget = ({ userId, picturePath }) => {
   const [user, setUser] = useState();
   const navigate = useNavigate();
   const token = useSelector((state) => state.token);
-  // const friends = useSelector((state) => state.user.friends);
+  const friends = useSelector((state) => state.user.friends);
 
   const { palette } = useTheme();
   const dark = palette.neutral.dark
@@ -36,7 +36,7 @@ const UserWidget = ({ userId, picturePath }) => {
   useEffect(
     () => {
       getUser();
-    }, [])
+    }, [friends])
 
   if (!user) return null
 
@@ -47,7 +47,6 @@ const UserWidget = ({ userId, picturePath }) => {
     firstName,
     lastName,
     location,
-    friends
   } = user;
 
   return (
