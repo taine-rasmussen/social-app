@@ -4,19 +4,18 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
-import { 
-  Box, 
-  Button, 
-  TestField, 
-  useMediaQuery, 
-  Typography, 
-  useTheme, 
+import {
+  Box,
+  Button,
+  TestField,
+  useMediaQuery,
+  Typography,
+  useTheme,
   TextField
 } from '@mui/material';
 import { setLogin } from 'State';
 import Dropzone from 'react-dropzone';
 import FlexBetween from 'Components/FlexBetween';
-import { isAllOf } from "@reduxjs/toolkit";
 
 const registerSchema = yup.object().shape({
   firstName: yup.string().required('required'),
@@ -48,8 +47,6 @@ const initialValuesLogin = {
   password: ''
 };
 
-
-
 const Form = () => {
   const [pageType, setPageType] = useState('login');
   const { palette } = useTheme();
@@ -63,7 +60,7 @@ const Form = () => {
   const register = async (values, onSubmitProps) => {
     // Send form info with image
     const formData = new FormData()
-    for(let value in values){
+    for (let value in values) {
       formData.append(value, values[value])
     }
     formData.append('picturePath', values.picture.name)
@@ -76,23 +73,23 @@ const Form = () => {
     );
     const savedUser = await saveUserResponse.json();
     onSubmitProps.resetForm();
-    if(savedUser){
+    if (savedUser) {
       setPageType('login');
     };
   };
 
   const login = async (values, onSubmitProps) => {
-     const loggedInResponse = await fetch(
+    const loggedInResponse = await fetch(
       'http://localhost:3001/auth/login',
       {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(values)
       }
     );
     const loggedIn = await loggedInResponse.json()
     onSubmitProps.resetForm();
-    if(loggedIn){
+    if (loggedIn) {
       dispatch(
         setLogin({
           user: loggedIn.user,
@@ -104,8 +101,8 @@ const Form = () => {
   };
 
   const handleFormSubmit = async (values, onSubmitProps) => {
-    if(isLogin) await login(values, onSubmitProps);
-    if(isRegister) await register(values, onSubmitProps);
+    if (isLogin) await login(values, onSubmitProps);
+    if (isRegister) await register(values, onSubmitProps);
   }
 
   return (

@@ -4,7 +4,7 @@ import FlexBetween from 'Components/FlexBetween';
 import { useNavigate } from 'react-router-dom';
 import UserImage from 'Components/UserImage';
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import {
   ManageAccountsOutlined,
   EditOutlined,
@@ -41,12 +41,12 @@ const UserWidget = ({ userId, picturePath }) => {
   if (!user) return null
 
   const {
+    viewedProfile,
+    impressions,
+    occupation,
     firstName,
     lastName,
     location,
-    occupation,
-    viewedProfile,
-    impressions
   } = user;
 
   return (
