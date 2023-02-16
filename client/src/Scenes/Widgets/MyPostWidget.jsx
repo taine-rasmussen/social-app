@@ -135,7 +135,7 @@ const MyPostWidget = ({ picturePath }) => {
           <Typography
             color={mediumMain}
             sx={{
-              '&:hover': { cursor: 'pointer', color: medium }
+              '&:hover': { cursor: 'pointer', color: palette.primary.main }
             }}
           >
             Image
@@ -171,7 +171,10 @@ const MyPostWidget = ({ picturePath }) => {
           sx={{
             color: palette.background.alt,
             backgroundColor: palette.primary.main,
-            borderRadius: '3rem'
+            borderRadius: '3rem',
+            '&:hover': {
+              color: palette.primary.main
+            }
           }}
         >
           POST
