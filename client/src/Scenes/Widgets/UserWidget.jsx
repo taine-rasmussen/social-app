@@ -1,4 +1,4 @@
-import { Box, Typography, Divider, useTheme } from '@mui/material';
+import { Box, Typography, Divider, useTheme, InputBase } from '@mui/material';
 import WidgetWrapper from 'Components/WidgetWrapper';
 import FlexBetween from 'Components/FlexBetween';
 import { useNavigate } from 'react-router-dom';
@@ -11,9 +11,13 @@ import {
   LocationOnOutlined,
   WorkOutlineOutlined
 } from '@mui/icons-material';
+import DownloadDoneOutlinedIcon from '@mui/icons-material/DownloadDoneOutlined';
 
 const UserWidget = ({ userId, picturePath }) => {
   const [user, setUser] = useState();
+  const [url, setUrl] = useState('')
+  const [editSocial, setEditSocial] = useState(false);
+  const [editNetwork, setEditNetwork] = useState(false);
   const navigate = useNavigate();
   const token = useSelector((state) => state.token);
   const friends = useSelector((state) => state.user.friends);
@@ -31,6 +35,18 @@ const UserWidget = ({ userId, picturePath }) => {
     const data = await response.json();
     setUser(data);
   };
+
+  const updateNetwork = async () => {
+    // updates db user model with new url string for the network key
+    setEditNetwork(false)
+    setUrl('')
+  }
+
+  const updateSocial = async () => {
+    // updates db user model with new url string for the social key
+    setEditSocial(false)
+    setUrl('')
+  }
 
   useEffect(
     () => {
@@ -124,32 +140,97 @@ const UserWidget = ({ userId, picturePath }) => {
           Social Profiles
           </Typography>
         <FlexBetween gap='1rem' mb='0.5rem'>
-          <FlexBetween gap='1rem'>
+          <FlexBetween gap='1.25rem'>
             <img src='../assets/linkedin.png' alt='linkedin' />
             <Box>
-              <Typography color={main} fontWeight='500'>
-                Linkedin
-                    </Typography>
-              <Typography color={medium}>Network Platform</Typography>
+              {editNetwork ? (
+                <InputBase
+                  placeholder="Enter link..."
+                  onChange={(e) => setUrl(e.target.value)}
+                  value={url}
+                  sx={{
+                    width: '100%',
+                    backgroundColor: palette.neutral.light,
+                    borderRadius: '1rem',
+                    padding: '0.3rem 0.5rem'
+                  }}
+                />
+              ) : (
+                <>
+                  <Typography color={main} fontWeight='500'>Linkedin</Typography>
+                  <Typography color={medium}>Network Platform</Typography>
+                </>
+              )}
             </Box>
           </FlexBetween>
-          <EditOutlined sx={{ color: main }} />
+          {editNetwork ? (
+            <DownloadDoneOutlinedIcon
+              sx={{
+                color: main,
+                '&:hover': { cursor: 'pointer' }
+              }}
+              onClick={updateNetwork}
+            />
+          ) : (
+            <EditOutlined
+              sx={{
+                color: main,
+                '&:hover': { cursor: 'pointer' }
+              }}
+              onClick={() => {
+                if (editSocial) setEditSocial(false)
+                setEditNetwork(true)
+              }}
+            />
+          )}
         </FlexBetween>
-
         <FlexBetween gap='1rem'>
           <FlexBetween gap='1rem'>
             <img src='../assets/twitter.png' alt='twitter' />
             <Box>
-              <Typography color={main} fontWeight='500'>
-                Twitter
-                    </Typography>
-              <Typography color={medium}>Social Network</Typography>
+              {editSocial ? (
+                <InputBase
+                  placeholder="Enter link..."
+                  onChange={(e) => setUrl(e.target.value)}
+                  value={url}
+                  sx={{
+                    width: '100%',
+                    backgroundColor: palette.neutral.light,
+                    borderRadius: '1rem',
+                    padding: '0.25rem 0.5rem'
+                  }}
+                />
+              ) : (
+                <>
+                  <Typography color={main} fontWeight='500'>Twitter</Typography>
+                  <Typography color={medium}>Social Network</Typography>
+                </>
+              )}
             </Box>
           </FlexBetween>
-          <EditOutlined sx={{ color: main }} />
+          {editSocial ? (
+            <DownloadDoneOutlinedIcon
+              sx={{
+                color: main,
+                '&:hover': { cursor: 'pointer' }
+              }}
+              onClick={updateSocial}
+            />
+          ) : (
+            <EditOutlined
+              sx={{
+                color: main,
+                '&:hover': { cursor: 'pointer' }
+              }}
+              onClick={() => {
+                if (editNetwork) setEditNetwork(false)
+                setEditSocial(true)
+              }}
+            />
+          )}
         </FlexBetween>
       </Box>
-    </WidgetWrapper>
+    </WidgetWrapper >
   )
 };
 
