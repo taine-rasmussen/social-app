@@ -9,7 +9,8 @@ import {
   ManageAccountsOutlined,
   EditOutlined,
   LocationOnOutlined,
-  WorkOutlineOutlined
+  WorkOutlineOutlined,
+  Margin
 } from '@mui/icons-material';
 import DownloadDoneOutlinedIcon from '@mui/icons-material/DownloadDoneOutlined';
 
@@ -139,8 +140,8 @@ const UserWidget = ({ userId, picturePath }) => {
         >
           Social Profiles
           </Typography>
-        <FlexBetween gap='1rem' mb='0.5rem'>
-          <FlexBetween gap='1.25rem'>
+        <FlexBetween gap='1rem' mb='0.5rem' height='50px'>
+          <FlexBetween gap='1rem'>
             <img src='../assets/linkedin.png' alt='linkedin' />
             <Box>
               {editNetwork ? (
@@ -152,7 +153,7 @@ const UserWidget = ({ userId, picturePath }) => {
                     width: '100%',
                     backgroundColor: palette.neutral.light,
                     borderRadius: '1rem',
-                    padding: '0.3rem 0.5rem'
+                    padding: '0.3rem 0.5rem',
                   }}
                 />
               ) : (
@@ -184,7 +185,7 @@ const UserWidget = ({ userId, picturePath }) => {
             />
           )}
         </FlexBetween>
-        <FlexBetween gap='1rem'>
+        <FlexBetween gap='1rem' height='50px'>
           <FlexBetween gap='1rem'>
             <img src='../assets/twitter.png' alt='twitter' />
             <Box>
