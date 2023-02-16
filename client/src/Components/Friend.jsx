@@ -18,7 +18,6 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { _id } = useSelector((state) => state.user);
-  const user = useSelector((state) => state.user);
   const token = useSelector((state) => state.token);
   const friends = useSelector((state) => state.user.friends);
 
@@ -76,16 +75,18 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
           </Typography>
         </Box>
       </FlexBetween>
-      <IconButton
-        onClick={() => patchFriend()}
-        sx={{ backgroundColor: primaryLight, p: '0.6rem' }}
-      >
-        {isFriend ? (
-          <PersonRemoveOutlined />
-        ) : (
-          <PersonAddOutlined />
-        )}
-      </IconButton>
+      {friendId !== _id && (
+        <IconButton
+          onClick={() => patchFriend()}
+          sx={{ backgroundColor: primaryLight, p: '0.6rem' }}
+        >
+          {isFriend ? (
+            <PersonRemoveOutlined />
+          ) : (
+            <PersonAddOutlined />
+          )}
+        </IconButton>
+      )}
     </FlexBetween >
   )
 };

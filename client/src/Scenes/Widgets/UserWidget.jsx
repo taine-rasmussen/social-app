@@ -9,8 +9,7 @@ import {
   ManageAccountsOutlined,
   EditOutlined,
   LocationOnOutlined,
-  WorkOutlineOutlined,
-  FaxRounded
+  WorkOutlineOutlined
 } from '@mui/icons-material';
 
 const UserWidget = ({ userId, picturePath }) => {
