@@ -1,4 +1,3 @@
-import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 import { useDispatch, useSelector } from 'react-redux';
 import WidgetWrapper from 'Components/WidgetWrapper';
 import FlexBetween from 'Components/FlexBetween';
@@ -42,13 +41,9 @@ const PostWidget = (props) => {
   } = props;
 
   const [isComments, setIsComments] = useState(false)
-  const [newComment, setNewComment] = useState('')
   const dispatch = useDispatch();
   const token = useSelector((state) => state.token);
   const loggedInUserId = useSelector((state) => state.user._id);
-  const { firstName, lastName } = useSelector((state) => state.user);
-
-  const fullName = `${firstName} ${lastName}`;
 
   // Checks to see if id is present in likes map
   const isLiked = Boolean(likes[loggedInUserId]);
@@ -69,25 +64,6 @@ const PostWidget = (props) => {
     });
     const updatedPost = await response.json();
     dispatch(setPost({ post: updatedPost }));
-  };
-
-  const patchComment = async () => {
-    const resposne = await fetch(`http://localhost:3001/posts/${postId}/comment`, {
-      method: 'PATCH',
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        userId: loggedInUserId,
-        comment: newComment,
-        name: fullName
-      })
-    });
-    const updatedPost = await resposne.json();
-    dispatch(setPost({ post: updatedPost }));
-    setNewComment('');
-    getPosts();
   };
 
   return (
@@ -136,10 +112,17 @@ const PostWidget = (props) => {
         </IconButton>
       </FlexBetween>
       {isComments && (
-        <CommentsWidget />
+        <CommentsWidget
+          loggedInUserId={loggedInUserId}
+          comments={comments}
+          getPosts={getPosts}
+          postId={postId}
+          token={token}
+          name={name}
+        />
       )}
     </WidgetWrapper>
   )
-}
+};
 
 export default PostWidget
