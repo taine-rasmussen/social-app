@@ -143,7 +143,7 @@ const PostWidget = (props) => {
               onChange={(e) => setNewComment(e.target.value)}
               value={newComment}
               sx={{
-                width: '95%',
+                width: '90%',
                 backgroundColor: palette.neutral.light,
                 borderRadius: '1rem',
                 padding: '0.5rem 1rem',
