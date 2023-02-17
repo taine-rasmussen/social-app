@@ -5,6 +5,7 @@ import FlexBetween from "Components/FlexBetween";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { setMode, setLogout } from "State";
+import Slide from '@mui/material/Slide';
 import {
   useMediaQuery,
   Autocomplete,
@@ -75,10 +76,10 @@ const NavBar = () => {
 
   return (
     <FlexBetween padding='1rem 6%' backgroundColor={alt}>
-      <FlexBetween gap="1.75rem">
+      <FlexBetween gap="1.75rem" minHeight='100px'>
         <Typography
           fontWeight='bold'
-          fontSize='clamp(1rem, 2rem, 2.25rem)'
+          fontSize='clamp(0.25rem, 2rem, 2.25rem)'
           color='primary'
           onClick={() => navigate('/home')}
           sx={{
@@ -89,7 +90,7 @@ const NavBar = () => {
           }}
         >
           Social app
-        </Typography>
+          </Typography>
         {isNonMobileScreens && (
           <FlexBetween
             backgroundColor={neutralLight}
@@ -170,7 +171,7 @@ const NavBar = () => {
         <Box
           sx={{
             backgroundColor: background,
-            maxWidth: '125px',
+            maxWidth: 'fitContent',
             minWidth: '75px',
             padding: '0.5rem 0.25rem',
             borderRadius: '0.5rem',
@@ -190,14 +191,14 @@ const NavBar = () => {
           <Divider />
           <FlexBetween
             display='flex'
-            flexDirection='column'
+            flexDirection='row'
             justifyContent='center'
             alignItems='center'
-            gap='0.75rem'
+            gap='0.5rem'
           >
             <IconButton
               onClick={() => dispatch(setMode())}
-              x={{ fontSize: '25px' }}
+            // x={{ fontSize: '25px' }}
             >
               {theme.palette.mode === 'dark' ? (
                 <DarkMode sx={{ fontSize: '25px' }} />
