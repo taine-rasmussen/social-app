@@ -9,7 +9,8 @@ import {
   Divider,
   Typography,
   useTheme,
-  IconButton
+  IconButton,
+  InputBase
 } from '@mui/material';
 import {
   ChatBubbleOutlineOutlined,
@@ -38,6 +39,7 @@ const PostWidget = (props) => {
   } = props;
 
   const [isComments, setIsComments] = useState(false)
+  const [newComment, setNewComment] = useState('')
   const dispatch = useDispatch();
   const token = useSelector((state) => state.token);
   const loggedInUserId = useSelector((state) => state.user._id);
@@ -72,9 +74,11 @@ const PostWidget = (props) => {
       },
       body: JSON.stringify({ userId: loggedInUserId })
     });
-    const updatedPost = await response.json();
-    setDispatch(setPost({ post: updatedPost }));
+    const updatedPost = await resposne.json();
+    dispatch(setPost({ post: updatedPost }));
   };
+
+  console.log(newComment)
 
   return (
     <WidgetWrapper m='2rem 0'>
@@ -132,6 +136,18 @@ const PostWidget = (props) => {
             </Box>
           ))}
           <Divider />
+          <InputBase
+            placeholder="Add new comment..."
+            onChange={(e) => setNewComment(e.target.value)}
+            value={newComment}
+            sx={{
+              width: '100%',
+              backgroundColor: palette.neutral.light,
+              borderRadius: '1rem',
+              padding: '0.5rem 1rem',
+              margin: '0.5rem 0'
+            }}
+          />
         </Box>
       )}
     </WidgetWrapper>
