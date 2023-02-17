@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import FlexBetween from "Components/FlexBetween";
 import { setMode, setLogout } from "State";
-import { useImperativeHandle, useState } from "react";
+import { useState } from "react";
 import {
   useMediaQuery,
   IconButton,
@@ -41,12 +41,6 @@ const NavBar = () => {
   const alt = theme.palette.neutral.alt;
 
   const fullName = `${user.firstName} ${user.lastName}`;
-  const { _id } = user;
-
-
-  const navToUserProfile = () => {
-    return navigate(`/profile/${_id}`)
-  }
 
   return (
     <FlexBetween padding='1rem 6%' backgroundColor={alt}>
@@ -183,7 +177,7 @@ const NavBar = () => {
                 input={<InputBase />}
               >
                 <MenuItem value={fullName}>
-                  <Typography > {fullName}</Typography>
+                  <Typography> {fullName}</Typography>
                 </MenuItem>
                 <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem>
               </Select>

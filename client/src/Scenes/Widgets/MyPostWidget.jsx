@@ -12,10 +12,8 @@ import {
   GifBoxOutlined,
   ImageOutlined,
   EditOutlined,
-  MicOutlined,
-  FaxRounded,
-  PlayCircleFilledWhiteOutlined,
-} from '@mui/icons-material'
+  MicOutlined
+} from '@mui/icons-material';
 import {
   useMediaQuery,
   Typography,
