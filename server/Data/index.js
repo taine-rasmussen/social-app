@@ -159,9 +159,21 @@ export const posts = [
       [userIds[4], true],
     ]),
     comments: [
-      "random comment",
-      "another random comment",
-      "yet another random comment",
+      {
+        comment: 'random comment',
+        name: 'Jessica Dunn',
+        id: '63ed15929d9db158d4cf9e9c'
+      },
+      {
+        comment: 'another random comment',
+        name: 'Harvey Dunn',
+        id: '63ed15929d9db158d4cf9e9a'
+      },
+      {
+        comment: 'yet another random comment',
+        name: 'Harvey Dunn',
+        id: '63ed15929d9db158d4cf9e9a'
+      }
     ],
   },
   {
@@ -181,10 +193,26 @@ export const posts = [
       [userIds[2], true],
     ]),
     comments: [
-      "one more random comment",
-      "and another random comment",
-      "no more random comments",
-      "I lied, one more random comment",
+      {
+        comment: 'random comment',
+        name: 'Jane Doe',
+        id: '63ed15929d9db158d4cf9e99'
+      },
+      {
+        comment: 'another random comment',
+        name: 'Whatcha Doing',
+        id: '63ed15929d9db158d4cf9e98'
+      },
+      {
+        comment: 'yet another random comment',
+        name: 'Jane Doe',
+        id: '63ed15929d9db158d4cf9e99'
+      },
+      {
+        comment: 'even more random comments',
+        name: 'Whatcha Doing',
+        id: '63ed15929d9db158d4cf9e98'
+      }
     ],
   },
   {
@@ -204,11 +232,36 @@ export const posts = [
       [userIds[5], true],
     ]),
     comments: [
-      "one more random comment",
-      "I lied, one more random comment",
-      "I lied again, one more random comment",
-      "Why am I doing this?",
-      "I'm bored",
+      {
+        comment: 'This is painful to write',
+        name: 'Steve Ralph',
+        id: '63ed15929d9db158d4cf9e96'
+      },
+      {
+        comment: 'Picton Ave',
+        name: 'Whatcha Doing',
+        id: '63ed15929d9db158d4cf9e96'
+      },
+      {
+        comment: 'random comment',
+        name: 'Steve Ralph',
+        id: '63ed15929d9db158d4cf9e99'
+      },
+      {
+        comment: 'another random comment',
+        name: 'Whatcha Doing',
+        id: '63ed15929d9db158d4cf9e98'
+      },
+      {
+        comment: 'yet another random comment',
+        name: 'Jane Doe',
+        id: '63ed15929d9db158d4cf9e99'
+      },
+      {
+        comment: 'even more random comments',
+        name: 'Whatcha Doing',
+        id: '63ed15929d9db158d4cf9e98'
+      }
     ],
   },
   {
@@ -227,12 +280,16 @@ export const posts = [
       [userIds[3], true],
     ]),
     comments: [
-      "I lied again, one more random comment",
-      "Why am I doing this?",
-      "I'm bored",
-      "I'm still bored",
-      "All I want to do is play video games",
-      "I'm going to play video games",
+      {
+        comment: 'another random comment',
+        name: 'Whatcha Doing',
+        id: '63ed15929d9db158d4cf9e98'
+      },
+      {
+        comment: 'yet another random comment',
+        name: 'Jane Doe',
+        id: '63ed15929d9db158d4cf9e99'
+      },
     ],
   },
   {
@@ -252,11 +309,26 @@ export const posts = [
       [userIds[7], true],
     ]),
     comments: [
-      "I lied again, one more random comment",
-      "Why am I doing this?",
-      "Man I'm bored",
-      "What should I do?",
-      "I'm going to play video games",
+      {
+        comment: 'another random comment',
+        name: 'Whatcha Doing',
+        id: '63ed15929d9db158d4cf9e98'
+      },
+      {
+        comment: 'yet another random comment',
+        name: 'Jane Doe',
+        id: '63ed15929d9db158d4cf9e99'
+      },
+      {
+        comment: 'LGTM!',
+        name: 'Carly Vowel',
+        id: '63ed15929d9db158d4cf9e9b'
+      },
+      {
+        comment: 'Pātea Māori Club',
+        name: 'Carly Vowele',
+        id: '63ed15929d9db158d4cf9e9b'
+      },
     ],
   },
   {
@@ -274,12 +346,6 @@ export const posts = [
       [userIds[2], true],
     ]),
 
-    comments: [
-      "Can I play video games now?",
-      "No let's actually study",
-      "Never mind, I'm going to play video games",
-      "Stop it.",
-      "Michael, stop it.",
-    ],
+    comments: [],
   },
 ];
