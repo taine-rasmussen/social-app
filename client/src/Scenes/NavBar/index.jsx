@@ -93,7 +93,7 @@ const NavBar = () => {
             backgroundColor={neutralLight}
             borderRadius='9px'
             gap='3rem'
-            padding='0.1rem 1.5rem'
+            padding='0.25rem 0.75rem'
           >
             <Autocomplete
               disablePortal
@@ -103,7 +103,12 @@ const NavBar = () => {
               onChange={(value, newInputValue) => {
                 naviageteFromSearch(newInputValue)
               }}
-              renderInput={(params) => <TextField {...params} label="Search..." />}
+              renderInput={(params) => <TextField
+                {...params}
+                label="Search..."
+                variant="standard"
+                sx={{ padding: '0.35rem 0' }}
+              />}
             />
           </FlexBetween>
         )}

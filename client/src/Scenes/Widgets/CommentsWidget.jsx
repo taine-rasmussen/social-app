@@ -1,6 +1,7 @@
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 import { useDispatch, useSelector } from 'react-redux';
 import FlexBetween from 'Components/FlexBetween';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { setPost } from 'State';
 import {
@@ -23,6 +24,7 @@ const CommentsWidget = (props) => {
   } = props;
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [newComment, setNewComment] = useState('')
   const { firstName, lastName } = useSelector((state) => state.user);
   const fullName = `${firstName} ${lastName}`;
@@ -62,7 +64,18 @@ const CommentsWidget = (props) => {
               width: '100%'
             }}
           >
-            <Typography sx={{ color: primary, m: '0.5rem 0', width: '20%' }}>
+            <Typography
+              sx={{
+                color: primary,
+                m: '0.5rem 0',
+                width: '20%',
+                '&:hover': {
+                  cursor: 'pointer',
+                  color: medium
+                }
+              }}
+              onClick={() => { navigate(`/profile/${comment.id}`) }}
+            >
               {`${comment.name}:`}
             </Typography>
             <Typography sx={{ color: medium, m: '0.5rem 0', width: '80%' }}>
