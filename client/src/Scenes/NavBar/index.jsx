@@ -1,9 +1,9 @@
 
-import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import FlexBetween from "Components/FlexBetween";
+import { useNavigate } from "react-router-dom";
 import { setMode, setLogout } from "State";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   useMediaQuery,
   Autocomplete,
@@ -32,6 +32,7 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
+  const token = useSelector((state) => state.token);
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)")
 
   const theme = useTheme();
@@ -42,6 +43,29 @@ const NavBar = () => {
   const alt = theme.palette.neutral.alt;
 
   const fullName = `${user.firstName} ${user.lastName}`;
+
+  const getAll = async () => {
+    const response = await fetch(`http://localhost:3001/users`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    const users = await response.json();
+    console.log(users)
+  };
+
+
+  useEffect(
+    () => {
+      getAll();
+    }, []
+  );
+
+  const test = ['asdf']
+
+
 
   return (
     <FlexBetween padding='1rem 6%' backgroundColor={alt}>
@@ -70,7 +94,7 @@ const NavBar = () => {
             <Autocomplete
               disablePortal
               id="combo-box-demo"
-              // options={top100Films}
+              options={test}
               sx={{ width: 300 }}
               renderInput={(params) => <TextField {...params} label="Search..." />}
             />
