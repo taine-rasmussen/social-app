@@ -5,7 +5,6 @@ import FlexBetween from "Components/FlexBetween";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { setMode, setLogout } from "State";
-import Slide from '@mui/material/Slide';
 import {
   useMediaQuery,
   Autocomplete,
