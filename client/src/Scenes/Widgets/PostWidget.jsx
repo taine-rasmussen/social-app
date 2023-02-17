@@ -18,6 +18,7 @@ import {
   FavoriteOutlined,
   ShareOutlined
 } from '@mui/icons-material';
+import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 
 // Models map structure - if user hasn't liked the id will not be present
 // likes = {
@@ -136,18 +137,26 @@ const PostWidget = (props) => {
             </Box>
           ))}
           <Divider />
-          <InputBase
-            placeholder="Add new comment..."
-            onChange={(e) => setNewComment(e.target.value)}
-            value={newComment}
-            sx={{
-              width: '100%',
-              backgroundColor: palette.neutral.light,
-              borderRadius: '1rem',
-              padding: '0.5rem 1rem',
-              margin: '0.5rem 0'
-            }}
-          />
+          <FlexBetween>
+            <InputBase
+              placeholder="Add new comment..."
+              onChange={(e) => setNewComment(e.target.value)}
+              value={newComment}
+              sx={{
+                width: '95%',
+                backgroundColor: palette.neutral.light,
+                borderRadius: '1rem',
+                padding: '0.5rem 1rem',
+                margin: '0.5rem 0'
+              }}
+            />
+            <SendOutlinedIcon
+              sx={{
+                color: newComment.length > 0 ? primary : medium,
+                '&:hover': { cursor: 'pointer' }
+              }}
+            />
+          </FlexBetween>
         </Box>
       )}
     </WidgetWrapper>
