@@ -57,14 +57,14 @@ const CommentsWidget = (props) => {
           key={`${name}-${i}`}
           sx={{
             display: 'flex',
-            flexDirection: 'row'
+            flexDirection: 'row',
+            width: '100%'
           }}
         >
-          <Divider />
-          <Typography sx={{ color: primary, m: '0.5rem 0', pl: '1rem' }}>
+          <Typography sx={{ color: primary, m: '0.5rem 0', pl: '1rem', width: '30%' }}>
             {`${comment.name}:`}
           </Typography>
-          <Typography sx={{ color: medium, m: '0.5rem 0', pl: '1rem' }}>
+          <Typography sx={{ color: medium, m: '0.5rem 0', pl: '1rem', width: '100%' }}>
             {comment.comment}
           </Typography>
         </Box>
