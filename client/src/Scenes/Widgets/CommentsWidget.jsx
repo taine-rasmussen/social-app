@@ -70,7 +70,8 @@ const CommentsWidget = (props) => {
                 m: '0.5rem 0',
                 width: '20%',
                 '&:hover': {
-                  cursor: 'pointer'
+                  cursor: 'pointer',
+                  color: medium
                 }
               }}
               onClick={() => { navigate(`/profile/${comment.id}`) }}
