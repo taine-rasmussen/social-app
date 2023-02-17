@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import WidgetWrapper from 'Components/WidgetWrapper';
 import FlexBetween from 'Components/FlexBetween';
 import Friend from 'Components/Friend';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { setPost } from 'State';
 import {
   Box,
