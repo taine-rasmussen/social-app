@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import WidgetWrapper from 'Components/WidgetWrapper';
 import FlexBetween from 'Components/FlexBetween';
 import Friend from 'Components/Friend';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { setPost } from 'State';
 import {
   Box,
@@ -34,6 +34,7 @@ const PostWidget = (props) => {
     postUserId,
     location,
     comments,
+    getPosts,
     postId,
     likes,
     name,
@@ -83,8 +84,9 @@ const PostWidget = (props) => {
       })
     });
     const updatedPost = await resposne.json();
-    setNewComment('')
     dispatch(setPost({ post: updatedPost }));
+    setNewComment('');
+    getPosts();
   };
 
   return (

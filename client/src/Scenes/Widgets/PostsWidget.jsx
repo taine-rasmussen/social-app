@@ -59,6 +59,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
             location={location}
             comments={comments}
             postUserId={userId}
+            getPosts={getPosts}
             likes={likes}
             postId={_id}
             key={_id}
