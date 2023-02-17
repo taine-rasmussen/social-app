@@ -74,21 +74,26 @@ export const likePost = async (req, res) => {
 
 export const commentPost = async (req, res) => {
   try {
-    // Need id of post and id of commenter
     const { id } = req.params;
-    const { userId } = req.body;
+    const {
+      userId,
+      comment,
+      name
+    } = req.body;
 
-    // Get post being commented on
     const post = await Post.findById(id);
+    const newComment = {
+      comment: comment,
+      name: name,
+      id: userId
+    }
 
-    //update post with new comment
+    post.comments.addToSet(newComment)
     const updatedPost = await Post.findByIdAndUpdate(
       id,
-      // { likes: post.likes },
-      // { new: true }
+      { comments: post.comments }
     );
 
-    // Send updated post back to front end 
     res.status(200).json(updatedPost);
   } catch (err) {
     res.status(404).json({ message: err.message });

@@ -44,6 +44,9 @@ const PostWidget = (props) => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.token);
   const loggedInUserId = useSelector((state) => state.user._id);
+  const { firstName, lastName } = useSelector((state) => state.user);
+
+  const fullName = `${firstName} ${lastName}`;
 
   // Checks to see if id is present in likes map
   const isLiked = Boolean(likes[loggedInUserId]);
@@ -73,13 +76,16 @@ const PostWidget = (props) => {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ userId: loggedInUserId })
+      body: JSON.stringify({
+        userId: loggedInUserId,
+        comment: newComment,
+        name: fullName
+      })
     });
     const updatedPost = await resposne.json();
+    setNewComment('')
     dispatch(setPost({ post: updatedPost }));
   };
-
-  console.log(newComment)
 
   return (
     <WidgetWrapper m='2rem 0'>
@@ -131,9 +137,14 @@ const PostWidget = (props) => {
           {comments.map((comment, i) => (
             <Box key={`${name}-${i}`}>
               <Divider />
-              <Typography sx={{ color: primary, m: '0.5rem 0', pl: '1rem' }}>
-                {comment}
-              </Typography>
+              <FlexBetween>
+                <Typography sx={{ color: primary, m: '0.5rem 0', pl: '1rem' }}>
+                  {comment.name}
+                </Typography>
+                <Typography sx={{ color: primary, m: '0.5rem 0', pl: '1rem' }}>
+                  {comment.comment}
+                </Typography>
+              </FlexBetween>
             </Box>
           ))}
           <Divider />
@@ -155,6 +166,7 @@ const PostWidget = (props) => {
                 color: newComment.length > 0 ? primary : medium,
                 '&:hover': { cursor: 'pointer' }
               }}
+              onClick={patchComment}
             />
           </FlexBetween>
         </Box>
