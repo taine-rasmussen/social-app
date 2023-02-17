@@ -6,12 +6,9 @@ import Friend from 'Components/Friend';
 import { useState } from 'react';
 import { setPost } from 'State';
 import {
-  Box,
-  Divider,
   Typography,
   useTheme,
-  IconButton,
-  InputBase
+  IconButton
 } from '@mui/material';
 import {
   ChatBubbleOutlineOutlined,
