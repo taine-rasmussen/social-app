@@ -90,7 +90,7 @@ const NavBar = () => {
           }}
         >
           Social app
-          </Typography>
+        </Typography>
         {isNonMobileScreens && (
           <FlexBetween
             backgroundColor={neutralLight}
@@ -171,9 +171,9 @@ const NavBar = () => {
         <Box
           sx={{
             backgroundColor: background,
-            maxWidth: 'fitContent',
+            maxWidth: '175px',
             minWidth: '75px',
-            padding: '0.5rem 0.25rem',
+            padding: '0.5rem 0',
             borderRadius: '0.5rem',
             zIndex: '999999'
           }}
@@ -195,17 +195,14 @@ const NavBar = () => {
             justifyContent='center'
             alignItems='center'
             gap='0.5rem'
+            padding='0.5rem'
           >
-            <IconButton
-              onClick={() => dispatch(setMode())}
-            // x={{ fontSize: '25px' }}
-            >
-              {theme.palette.mode === 'dark' ? (
-                <DarkMode sx={{ fontSize: '25px' }} />
-              ) : (
-                <LightMode sx={{ color: dark, fontSize: '25px' }} />
-              )}
-            </IconButton>
+
+            {theme.palette.mode === 'dark' ? (
+              <DarkMode sx={{ fontSize: '25px' }} onClick={() => dispatch(setMode())} />
+            ) : (
+              <LightMode sx={{ color: dark, fontSize: '25px' }} onClick={() => dispatch(setMode())} />
+            )}
             <Message sx={{ fontSize: '25px' }} />
             <Notifications sx={{ fontSize: '25px' }} />
             <Help sx={{ fontSize: '25px' }} />
