@@ -14,6 +14,7 @@ import {
   InputBase,
   useTheme,
   MenuItem,
+  Divider,
   Select,
   Box
 } from "@mui/material";
@@ -39,7 +40,7 @@ const NavBar = () => {
   const theme = useTheme();
   const neutralLight = theme.palette.neutral.light
   const dark = theme.palette.neutral.dark
-  const background = theme.palette.background.default
+  const background = theme.palette.background.alt
   const primaryLight = theme.palette.primary.light
   const alt = theme.palette.neutral.alt;
 
@@ -155,28 +156,28 @@ const NavBar = () => {
           </FormControl>
         </FlexBetween>
       ) : (
-        <IconButton
-          onClick={() => { setIsMobileMenuToggled(!isMobileMenuToggled) }}
-        >
-          <Menu />
-        </IconButton>
+        !isMobileMenuToggled && (
+          <IconButton
+            onClick={() => { setIsMobileMenuToggled(!isMobileMenuToggled) }}
+          >
+            <Menu />
+          </IconButton>
+        )
       )}
       {/* Mobile Nav */}
       {!isNonMobileScreens && isMobileMenuToggled && (
         <Box
-          postion='fixed'
-          right='0'
-          bottom='0'
-          height='100%'
-          zIndex='10'
-          maxWidth='500px'
-          minWidth='300px'
-          background={background}
+          sx={{
+            backgroundColor: background,
+            maxWidth: '125px',
+            minWidth: '75px',
+            padding: '0.5rem 0.25rem',
+            borderRadius: '0.5rem'
+          }}
         >
           <Box
             display='flex'
             justifyContent='flex-end'
-            p='1rem'
           >
             <IconButton
               onClick={() => { setIsMobileMenuToggled(!isMobileMenuToggled) }}
@@ -184,7 +185,8 @@ const NavBar = () => {
               <Close />
             </IconButton>
           </Box>
-          <FlexBetween display='flex' flexDirection='column' justifyContent='center' alignItems='center' gap='3rem'>
+          <Divider />
+          <FlexBetween display='flex' flexDirection='column' justifyContent='center' alignItems='center' gap='0.75rem'>
             <IconButton
               onClick={() => dispatch(setMode())}
               x={{ fontSize: '25px' }}
@@ -198,30 +200,6 @@ const NavBar = () => {
             <Message sx={{ fontSize: '25px' }} />
             <Notifications sx={{ fontSize: '25px' }} />
             <Help sx={{ fontSize: '25px' }} />
-            <FormControl varient='standard' value={fullName}>
-              <Select
-                value={fullName}
-                sx={{
-                  backgroundColor: neutralLight,
-                  width: '150px',
-                  borderRadius: '0.25rem',
-                  p: '0.25rem 1rem',
-                  "& .MuiSvgIcon-Root": {
-                    pr: '0.25rem',
-                    width: '3rem'
-                  },
-                  '& .MuiSelect-select:focus': {
-                    backgroundColor: neutralLight
-                  }
-                }}
-                input={<InputBase />}
-              >
-                <MenuItem value={fullName}>
-                  <Typography> {fullName}</Typography>
-                </MenuItem>
-                <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem>
-              </Select>
-            </FormControl>
           </FlexBetween>
         </Box>
       )}
