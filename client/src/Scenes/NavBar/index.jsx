@@ -6,9 +6,11 @@ import { setMode, setLogout } from "State";
 import { useState } from "react";
 import {
   useMediaQuery,
-  IconButton,
+  Autocomplete,
   FormControl,
+  IconButton,
   Typography,
+  TextField,
   InputBase,
   useTheme,
   MenuItem,
@@ -20,7 +22,6 @@ import {
   LightMode,
   DarkMode,
   Message,
-  Search,
   Close,
   Help,
   Menu
@@ -66,10 +67,25 @@ const NavBar = () => {
             gap='3rem'
             padding='0.1rem 1.5rem'
           >
-            <InputBase placeholder='Search...' />
+            <Autocomplete
+              disablePortal
+              id="combo-box-demo"
+              // options={top100Films}
+              sx={{ width: 300 }}
+              renderInput={(params) => <TextField {...params} label="Search..." />}
+            />
+
+
+
+
+
+
+
+
+            {/* <InputBase placeholder='Search...' />
             <IconButton>
               <Search />
-            </IconButton>
+            </IconButton> */}
           </FlexBetween>
         )}
       </FlexBetween>
