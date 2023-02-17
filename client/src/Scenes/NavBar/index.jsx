@@ -29,7 +29,7 @@ import {
 
 const NavBar = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
-  const [formattedUsers, setFormattedUsers] = useState(null)
+  const [formattedUsers, setFormattedUsers] = useState([])
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
@@ -57,7 +57,7 @@ const NavBar = () => {
     setFormattedUsers(formattedUsers)
   };
 
-  const userOptions = formattedUsers?.map(({ name }) => (name))
+  const userOptions = formattedUsers.map(({ name }) => (name))
 
   useEffect(
     () => {
@@ -98,7 +98,7 @@ const NavBar = () => {
             <Autocomplete
               disablePortal
               id="combo-box-demo"
-              options={formattedUsers ? userOptions : []}
+              options={userOptions}
               sx={{ width: 300 }}
               onChange={(value, newInputValue) => {
                 naviageteFromSearch(newInputValue)
