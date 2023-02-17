@@ -137,16 +137,20 @@ const PostWidget = (props) => {
       {isComments && (
         <Box mt='0.5rem'>
           {comments.map((comment, i) => (
-            <Box key={`${name}-${i}`}>
+            <Box
+              key={`${name}-${i}`}
+              sx={{
+                display: 'flex',
+                flexDirection: 'row'
+              }}
+            >
               <Divider />
-              <FlexBetween>
-                <Typography sx={{ color: primary, m: '0.5rem 0', pl: '1rem' }}>
-                  {comment.name}
-                </Typography>
-                <Typography sx={{ color: primary, m: '0.5rem 0', pl: '1rem' }}>
-                  {comment.comment}
-                </Typography>
-              </FlexBetween>
+              <Typography sx={{ color: primary, m: '0.5rem 0', pl: '1rem' }}>
+                {`${comment.name}:`}
+              </Typography>
+              <Typography sx={{ color: medium, m: '0.5rem 0', pl: '1rem' }}>
+                {comment.comment}
+              </Typography>
             </Box>
           ))}
           <Divider />
