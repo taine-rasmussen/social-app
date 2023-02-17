@@ -1,5 +1,6 @@
 
 import { useDispatch, useSelector } from "react-redux";
+import LogoutIcon from '@mui/icons-material/Logout';
 import FlexBetween from "Components/FlexBetween";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -172,12 +173,13 @@ const NavBar = () => {
             maxWidth: '125px',
             minWidth: '75px',
             padding: '0.5rem 0.25rem',
-            borderRadius: '0.5rem'
+            borderRadius: '0.5rem',
+            zIndex: '999999'
           }}
         >
           <Box
             display='flex'
-            justifyContent='flex-end'
+            justifyContent='center'
           >
             <IconButton
               onClick={() => { setIsMobileMenuToggled(!isMobileMenuToggled) }}
@@ -186,7 +188,13 @@ const NavBar = () => {
             </IconButton>
           </Box>
           <Divider />
-          <FlexBetween display='flex' flexDirection='column' justifyContent='center' alignItems='center' gap='0.75rem'>
+          <FlexBetween
+            display='flex'
+            flexDirection='column'
+            justifyContent='center'
+            alignItems='center'
+            gap='0.75rem'
+          >
             <IconButton
               onClick={() => dispatch(setMode())}
               x={{ fontSize: '25px' }}
@@ -200,6 +208,13 @@ const NavBar = () => {
             <Message sx={{ fontSize: '25px' }} />
             <Notifications sx={{ fontSize: '25px' }} />
             <Help sx={{ fontSize: '25px' }} />
+            <LogoutIcon
+              sx={{ fontSize: '25px' }}
+              onClick={() => {
+                dispatch(setLogout())
+                navigate('/')
+              }}
+            />
           </FlexBetween>
         </Box>
       )}
