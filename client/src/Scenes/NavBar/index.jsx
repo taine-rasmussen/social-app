@@ -172,14 +172,14 @@ const NavBar = () => {
             backgroundColor: background,
             maxWidth: '175px',
             minWidth: '75px',
-            padding: '0.5rem 0',
+            padding: '0.75rem 0',
             borderRadius: '0.5rem',
             zIndex: '999999'
           }}
         >
           <Box
             display='flex'
-            justifyContent='center'
+            justifyContent='flex-end'
           >
             <IconButton
               onClick={() => { setIsMobileMenuToggled(!isMobileMenuToggled) }}
