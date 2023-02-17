@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import WidgetWrapper from 'Components/WidgetWrapper';
 import FlexBetween from 'Components/FlexBetween';
+import CommentsWidget from './CommentsWidget';
 import Friend from 'Components/Friend';
 import { useState } from 'react';
 import { setPost } from 'State';
@@ -18,7 +19,6 @@ import {
   FavoriteOutlined,
   ShareOutlined
 } from '@mui/icons-material';
-import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 
 // Models map structure - if user hasn't liked the id will not be present
 // likes = {
@@ -34,19 +34,16 @@ const PostWidget = (props) => {
     postUserId,
     location,
     comments,
+    getPosts,
     postId,
     likes,
     name,
   } = props;
 
   const [isComments, setIsComments] = useState(false)
-  const [newComment, setNewComment] = useState('')
   const dispatch = useDispatch();
   const token = useSelector((state) => state.token);
   const loggedInUserId = useSelector((state) => state.user._id);
-  const { firstName, lastName } = useSelector((state) => state.user);
-
-  const fullName = `${firstName} ${lastName}`;
 
   // Checks to see if id is present in likes map
   const isLiked = Boolean(likes[loggedInUserId]);
@@ -66,24 +63,6 @@ const PostWidget = (props) => {
       body: JSON.stringify({ userId: loggedInUserId }),
     });
     const updatedPost = await response.json();
-    dispatch(setPost({ post: updatedPost }));
-  };
-
-  const patchComment = async () => {
-    const resposne = await fetch(`http://localhost:3001/posts/${postId}/comment`, {
-      method: 'PATCH',
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        userId: loggedInUserId,
-        comment: newComment,
-        name: fullName
-      })
-    });
-    const updatedPost = await resposne.json();
-    setNewComment('')
     dispatch(setPost({ post: updatedPost }));
   };
 
@@ -133,46 +112,17 @@ const PostWidget = (props) => {
         </IconButton>
       </FlexBetween>
       {isComments && (
-        <Box mt='0.5rem'>
-          {comments.map((comment, i) => (
-            <Box key={`${name}-${i}`}>
-              <Divider />
-              <FlexBetween>
-                <Typography sx={{ color: primary, m: '0.5rem 0', pl: '1rem' }}>
-                  {comment.name}
-                </Typography>
-                <Typography sx={{ color: primary, m: '0.5rem 0', pl: '1rem' }}>
-                  {comment.comment}
-                </Typography>
-              </FlexBetween>
-            </Box>
-          ))}
-          <Divider />
-          <FlexBetween>
-            <InputBase
-              placeholder="Add new comment..."
-              onChange={(e) => setNewComment(e.target.value)}
-              value={newComment}
-              sx={{
-                width: '90%',
-                backgroundColor: palette.neutral.light,
-                borderRadius: '1rem',
-                padding: '0.5rem 1rem',
-                margin: '0.5rem 0'
-              }}
-            />
-            <SendOutlinedIcon
-              sx={{
-                color: newComment.length > 0 ? primary : medium,
-                '&:hover': { cursor: 'pointer' }
-              }}
-              onClick={patchComment}
-            />
-          </FlexBetween>
-        </Box>
+        <CommentsWidget
+          loggedInUserId={loggedInUserId}
+          comments={comments}
+          getPosts={getPosts}
+          postId={postId}
+          token={token}
+          name={name}
+        />
       )}
     </WidgetWrapper>
   )
-}
+};
 
 export default PostWidget
