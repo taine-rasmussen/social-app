@@ -2,8 +2,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import FlexBetween from "Components/FlexBetween";
 import { useNavigate } from "react-router-dom";
-import { setMode, setLogout } from "State";
 import { useState, useEffect } from "react";
+import { setMode, setLogout } from "State";
 import {
   useMediaQuery,
   Autocomplete,
