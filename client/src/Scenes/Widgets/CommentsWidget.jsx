@@ -53,21 +53,24 @@ const CommentsWidget = (props) => {
   return (
     <Box mt='0.5rem'>
       {comments.map((comment, i) => (
-        <Box
-          key={`${name}-${i}`}
-          sx={{
-            display: 'flex',
-            flexDirection: 'row',
-            width: '100%'
-          }}
-        >
-          <Typography sx={{ color: primary, m: '0.5rem 0', width: '20%' }}>
-            {`${comment.name}:`}
-          </Typography>
-          <Typography sx={{ color: medium, m: '0.5rem 0', width: '80%' }}>
-            {comment.comment}
-          </Typography>
-        </Box>
+        <>
+          <Box
+            key={`${name}-${i}`}
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              width: '100%'
+            }}
+          >
+            <Typography sx={{ color: primary, m: '0.5rem 0', width: '20%' }}>
+              {`${comment.name}:`}
+            </Typography>
+            <Typography sx={{ color: medium, m: '0.5rem 0', width: '80%' }}>
+              {comment.comment}
+            </Typography>
+          </Box>
+          <Divider />
+        </>
       ))}
       <FlexBetween>
         <InputBase
