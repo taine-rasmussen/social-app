@@ -71,7 +71,7 @@ const CommentsWidget = (props) => {
                 width: '20%',
                 '&:hover': {
                   cursor: 'pointer',
-                  color: medium
+                  textDecorationLine: 'underline'
                 }
               }}
               onClick={() => { navigate(`/profile/${comment.id}`) }}
@@ -84,7 +84,8 @@ const CommentsWidget = (props) => {
           </Box>
           <Divider />
         </>
-      ))}
+      ))
+      }
       <FlexBetween>
         <InputBase
           placeholder="Add new comment..."
@@ -106,7 +107,7 @@ const CommentsWidget = (props) => {
           onClick={patchComment}
         />
       </FlexBetween>
-    </Box>
+    </Box >
   )
 };
 
