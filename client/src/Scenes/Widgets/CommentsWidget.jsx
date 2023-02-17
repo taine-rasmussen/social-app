@@ -61,15 +61,14 @@ const CommentsWidget = (props) => {
             width: '100%'
           }}
         >
-          <Typography sx={{ color: primary, m: '0.5rem 0', pl: '1rem', width: '30%' }}>
+          <Typography sx={{ color: primary, m: '0.5rem 0', width: '20%' }}>
             {`${comment.name}:`}
           </Typography>
-          <Typography sx={{ color: medium, m: '0.5rem 0', pl: '1rem', width: '100%' }}>
+          <Typography sx={{ color: medium, m: '0.5rem 0', width: '80%' }}>
             {comment.comment}
           </Typography>
         </Box>
       ))}
-      <Divider />
       <FlexBetween>
         <InputBase
           placeholder="Add new comment..."
