@@ -52,15 +52,28 @@ const PostWidget = (props) => {
 
   const patchLike = async () => {
     const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {
-      method: "PATCH",
+      method: 'PATCH',
       headers: {
         Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ userId: loggedInUserId }),
     });
     const updatedPost = await response.json();
     dispatch(setPost({ post: updatedPost }));
+  };
+
+  const patchComment = async () => {
+    const resposne = await fetch(`http://localhost:3001/posts/${postId}/comment`, {
+      method: 'PATCH',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ userId: loggedInUserId })
+    });
+    const updatedPost = await response.json();
+    setDispatch(setPost({ post: updatedPost }));
   };
 
   return (
