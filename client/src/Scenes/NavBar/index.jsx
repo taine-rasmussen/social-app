@@ -65,6 +65,12 @@ const NavBar = () => {
     }, []
   );
 
+  const naviageteFromSearch = (name) => {
+    const selectedUser = formattedUsers.filter((user) => user.name === name)
+    navigate(`/profile/${selectedUser[0]._id}`)
+    navigate(0)
+  }
+
   return (
     <FlexBetween padding='1rem 6%' backgroundColor={alt}>
       <FlexBetween gap="1.75rem">
@@ -94,6 +100,9 @@ const NavBar = () => {
               id="combo-box-demo"
               options={formattedUsers ? userOptions : []}
               sx={{ width: 300 }}
+              onChange={(value, newInputValue) => {
+                naviageteFromSearch(newInputValue)
+              }}
               renderInput={(params) => <TextField {...params} label="Search..." />}
             />
           </FlexBetween>
