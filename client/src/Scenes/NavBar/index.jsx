@@ -29,6 +29,7 @@ import {
 
 const NavBar = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
+  const [formattedUsers, setFormattedUsers] = useState(null)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
@@ -51,21 +52,18 @@ const NavBar = () => {
         Authorization: `Bearer ${token}`,
       },
     });
-
     const users = await response.json();
-    console.log(users)
+    const formattedUsers = users.map(({ firstName, lastName, _id }) => ({ name: `${firstName} ${lastName}`, _id }))
+    setFormattedUsers(formattedUsers)
   };
 
+  const userOptions = formattedUsers?.map(({ name }) => (name))
 
   useEffect(
     () => {
       getAll();
     }, []
   );
-
-  const test = ['asdf']
-
-
 
   return (
     <FlexBetween padding='1rem 6%' backgroundColor={alt}>
@@ -94,22 +92,10 @@ const NavBar = () => {
             <Autocomplete
               disablePortal
               id="combo-box-demo"
-              options={test}
+              options={formattedUsers ? userOptions : []}
               sx={{ width: 300 }}
               renderInput={(params) => <TextField {...params} label="Search..." />}
             />
-
-
-
-
-
-
-
-
-            {/* <InputBase placeholder='Search...' />
-            <IconButton>
-              <Search />
-            </IconButton> */}
           </FlexBetween>
         )}
       </FlexBetween>
