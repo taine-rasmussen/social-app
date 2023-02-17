@@ -70,6 +70,7 @@ mongoose.connect(URL, {
 }).then(() => {
   app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
   // One time inster of mock data
+  // TO AVOID BREAKING DB ONLY USE COMMANDS TOGETHER
   // User.insertMany(users);
   // Post.insertMany(posts);
 }).catch((error) => console.log(`${error} did not connect`))
