@@ -26,9 +26,11 @@ import {
 const PostWidget = (props) => {
   const {
     userPicturePath,
+    getUserPosts,
     description,
     picturePath,
     postUserId,
+    isProfile,
     location,
     comments,
     getPosts,
@@ -111,6 +113,8 @@ const PostWidget = (props) => {
       {isComments && (
         <CommentsWidget
           loggedInUserId={loggedInUserId}
+          getUserPosts={getUserPosts}
+          isProfile={isProfile}
           comments={comments}
           getPosts={getPosts}
           postId={postId}
