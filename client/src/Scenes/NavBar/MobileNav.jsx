@@ -1,6 +1,36 @@
+import { useDispatch } from "react-redux";
+import LogoutIcon from '@mui/icons-material/Logout';
+import FlexBetween from "Components/FlexBetween";
+import { useNavigate } from "react-router-dom";
+import { setMode, setLogout } from "State";
+import {
+  IconButton,
+  useTheme,
+  Divider,
+  Box
+} from "@mui/material";
+import {
+  Notifications,
+  LightMode,
+  DarkMode,
+  Message,
+  Close,
+  Help
+} from "@mui/icons-material";
 
+const MobileNav = (props) => {
+  const {
+    setIsMobileMenuToggled,
+    isMobileMenuToggled
+  } = props;
 
-const MobileNav = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const theme = useTheme();
+  const dark = theme.palette.neutral.dark
+  const background = theme.palette.background.alt
+
   return (
     <Box
       sx={{

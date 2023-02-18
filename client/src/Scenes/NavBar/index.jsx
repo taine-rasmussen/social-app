@@ -1,6 +1,5 @@
 
 import { useDispatch, useSelector } from "react-redux";
-import LogoutIcon from '@mui/icons-material/Logout';
 import FlexBetween from "Components/FlexBetween";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -16,16 +15,13 @@ import {
   InputBase,
   useTheme,
   MenuItem,
-  Divider,
-  Select,
-  Box
+  Select
 } from "@mui/material";
 import {
   Notifications,
   LightMode,
   DarkMode,
   Message,
-  Close,
   Help,
   Menu
 } from "@mui/icons-material";
@@ -168,7 +164,10 @@ const NavBar = () => {
       )}
       {/* Mobile Nav */}
       {!isNonMobileScreens && isMobileMenuToggled && (
-        <MobileNav />
+        <MobileNav
+          setIsMobileMenuToggled={setIsMobileMenuToggled}
+          isMobileMenuToggled={isMobileMenuToggled}
+        />
       )}
     </FlexBetween>
   )
