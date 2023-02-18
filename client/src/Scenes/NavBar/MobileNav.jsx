@@ -4,6 +4,7 @@ import FlexBetween from "Components/FlexBetween";
 import { useNavigate } from "react-router-dom";
 import { setMode, setLogout } from "State";
 import {
+  Typography,
   IconButton,
   useTheme,
   Divider,
@@ -30,6 +31,8 @@ const MobileNav = (props) => {
   const theme = useTheme();
   const dark = theme.palette.neutral.dark
   const background = theme.palette.background.alt
+  const primaryLight = theme.palette.primary.light
+
 
   return (
     <Box
@@ -44,8 +47,23 @@ const MobileNav = (props) => {
     >
       <Box
         display='flex'
-        justifyContent='flex-end'
+        justifyContent='space-between'
+        padding='0 0.75rem'
       >
+        <Typography
+          fontWeight='bold'
+          fontSize='2rem'
+          color='primary'
+          onClick={() => navigate('/home')}
+          sx={{
+            '&:hover': {
+              color: primaryLight,
+              cursor: 'pointer'
+            }
+          }}
+        >
+          Social app
+        </Typography>
         <IconButton
           onClick={() => { setIsMobileMenuToggled(!isMobileMenuToggled) }}
         >
