@@ -1,7 +1,7 @@
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import FlexBetween from 'Components/FlexBetween';
-import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { setPost } from 'State';
 import {
@@ -16,6 +16,8 @@ const CommentsWidget = (props) => {
 
   const {
     loggedInUserId,
+    getUserPosts,
+    isProfile,
     comments,
     getPosts,
     postId,
@@ -49,7 +51,11 @@ const CommentsWidget = (props) => {
     const updatedPost = await resposne.json();
     dispatch(setPost({ post: updatedPost }));
     setNewComment('');
-    getPosts();
+    if (isProfile) {
+      getUserPosts();
+    } else {
+      getPosts();
+    };
   };
 
   return (
@@ -68,7 +74,7 @@ const CommentsWidget = (props) => {
               sx={{
                 color: primary,
                 m: '0.5rem 0',
-                width: '20%',
+                width: '25%',
                 '&:hover': {
                   cursor: 'pointer',
                   textDecorationLine: 'underline'
