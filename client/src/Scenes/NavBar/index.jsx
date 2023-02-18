@@ -1,10 +1,10 @@
 
 import { useDispatch, useSelector } from "react-redux";
-import LogoutIcon from '@mui/icons-material/Logout';
 import FlexBetween from "Components/FlexBetween";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { setMode, setLogout } from "State";
+import MobileNav from './MobileNav';
 import {
   useMediaQuery,
   Autocomplete,
@@ -15,16 +15,13 @@ import {
   InputBase,
   useTheme,
   MenuItem,
-  Divider,
-  Select,
-  Box
+  Select
 } from "@mui/material";
 import {
   Notifications,
   LightMode,
   DarkMode,
   Message,
-  Close,
   Help,
   Menu
 } from "@mui/icons-material";
@@ -78,7 +75,7 @@ const NavBar = () => {
       <FlexBetween gap="1.75rem" minHeight='100px'>
         <Typography
           fontWeight='bold'
-          fontSize='clamp(0.25rem, 2rem, 2.25rem)'
+          fontSize='3rem'
           color='primary'
           onClick={() => navigate('/home')}
           sx={{
@@ -167,53 +164,10 @@ const NavBar = () => {
       )}
       {/* Mobile Nav */}
       {!isNonMobileScreens && isMobileMenuToggled && (
-        <Box
-          sx={{
-            backgroundColor: background,
-            maxWidth: '175px',
-            minWidth: '75px',
-            padding: '0.75rem 0',
-            borderRadius: '0.5rem',
-            zIndex: '999999'
-          }}
-        >
-          <Box
-            display='flex'
-            justifyContent='flex-end'
-          >
-            <IconButton
-              onClick={() => { setIsMobileMenuToggled(!isMobileMenuToggled) }}
-            >
-              <Close />
-            </IconButton>
-          </Box>
-          <Divider />
-          <FlexBetween
-            display='flex'
-            flexDirection='row'
-            justifyContent='center'
-            alignItems='center'
-            gap='0.5rem'
-            padding='0.5rem'
-          >
-
-            {theme.palette.mode === 'dark' ? (
-              <DarkMode sx={{ fontSize: '25px' }} onClick={() => dispatch(setMode())} />
-            ) : (
-              <LightMode sx={{ color: dark, fontSize: '25px' }} onClick={() => dispatch(setMode())} />
-            )}
-            <Message sx={{ fontSize: '25px' }} />
-            <Notifications sx={{ fontSize: '25px' }} />
-            <Help sx={{ fontSize: '25px' }} />
-            <LogoutIcon
-              sx={{ fontSize: '25px' }}
-              onClick={() => {
-                dispatch(setLogout())
-                navigate('/')
-              }}
-            />
-          </FlexBetween>
-        </Box>
+        <MobileNav
+          setIsMobileMenuToggled={setIsMobileMenuToggled}
+          isMobileMenuToggled={isMobileMenuToggled}
+        />
       )}
     </FlexBetween>
   )
