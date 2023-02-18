@@ -88,7 +88,6 @@ const NavBar = () => {
         </Typography>
         {isNonMobileScreens && (
           <FlexBetween
-            backgroundColor={neutralLight}
             borderRadius='9px'
             gap='3rem'
             padding='0.25rem 0.75rem'

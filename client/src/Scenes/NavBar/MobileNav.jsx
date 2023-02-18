@@ -42,7 +42,8 @@ const MobileNav = (props) => {
         padding: '0.75rem 0',
         borderRadius: '0.5rem',
         position: 'fixed',
-        zIndex: '999999'
+        zIndex: '999999',
+        border: `2.5px ${primaryLight} dotted`
       }}
     >
       <Box
