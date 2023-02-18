@@ -5,6 +5,7 @@ import FlexBetween from "Components/FlexBetween";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { setMode, setLogout } from "State";
+import MobileNav from './MobileNav';
 import {
   useMediaQuery,
   Autocomplete,
@@ -78,7 +79,7 @@ const NavBar = () => {
       <FlexBetween gap="1.75rem" minHeight='100px'>
         <Typography
           fontWeight='bold'
-          fontSize='clamp(0.25rem, 2rem, 2.25rem)'
+          fontSize='3rem'
           color='primary'
           onClick={() => navigate('/home')}
           sx={{
