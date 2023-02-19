@@ -72,6 +72,7 @@ const UserWidget = ({ userId, picturePath }) => {
     firstName,
     lastName,
     location,
+    network
   } = user;
 
   return (
@@ -166,10 +167,10 @@ const UserWidget = ({ userId, picturePath }) => {
                   }}
                 />
               ) : (
-                <>
-                  <Typography color={main} fontWeight='500'>Linkedin {user.network}</Typography>
+                <a href={network} target='_blank'>
+                  <Typography color={main} fontWeight='500'>Linkedin</Typography>
                   <Typography color={medium}>Network Platform</Typography>
-                </>
+                </a>
               )}
             </Box>
           </FlexBetween>
