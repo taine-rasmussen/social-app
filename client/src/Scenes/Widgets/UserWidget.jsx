@@ -45,12 +45,11 @@ const UserWidget = ({ userId, picturePath }) => {
       },
       body: JSON.stringify({
         network: url
-      })
+      }),
     });
-
-    console.log(response)
-
     const data = await response.json();
+    console.log(data)
+
     setUser(data);
     setEditNetwork(false)
     setUrl('')

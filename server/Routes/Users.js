@@ -17,8 +17,8 @@ router.get('/', verifyToken, getAll);
 router.get('/:id/friends', verifyToken, getUserFriends)
 
 // patch route
-router.patch('/:id/:friendId', verifyToken, addRemoveFriend);
 router.patch('/:id/network', verifyToken, updateNetwork);
+router.patch('/:id/:friendId', verifyToken, addRemoveFriend);
 router.patch('/:id/social', verifyToken, updateSocial);
 
 export default router

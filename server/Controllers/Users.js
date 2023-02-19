@@ -12,17 +12,18 @@ export const getUser = async (req, res) => {
 };
 
 
-export const updateNetwork = async () => {
+export const updateNetwork = async (req, res) => {
   try {
     const { id } = req.params;
-    const user = await User.findById(id);
     const {
       network
     } = req.body;
+    const user = await User.findById(id);
 
-    console.log(network, user, 'ARE WE GETTING HERE YET???????')
 
-    const updatedNetwork = await user.findByIdAndUpdate(
+    console.log(user, req.body)
+
+    const updatedNetwork = await User.findByIdAndUpdate(
       id,
       { network: network }
     );
@@ -35,7 +36,7 @@ export const updateNetwork = async () => {
   }
 };
 
-export const updateSocial = async () => {
+export const updateSocial = async (req, res) => {
   try {
     const { id } = req.params;
     const user = await User.findById(id);
