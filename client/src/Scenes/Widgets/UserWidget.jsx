@@ -1,3 +1,4 @@
+import DownloadDoneOutlinedIcon from '@mui/icons-material/DownloadDoneOutlined';
 import { Box, Typography, Divider, useTheme, InputBase } from '@mui/material';
 import WidgetWrapper from 'Components/WidgetWrapper';
 import FlexBetween from 'Components/FlexBetween';
@@ -7,12 +8,10 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import {
   ManageAccountsOutlined,
-  EditOutlined,
-  LocationOnOutlined,
   WorkOutlineOutlined,
-  Margin
+  LocationOnOutlined,
+  EditOutlined
 } from '@mui/icons-material';
-import DownloadDoneOutlinedIcon from '@mui/icons-material/DownloadDoneOutlined';
 
 const UserWidget = ({ userId, picturePath }) => {
   const [user, setUser] = useState();
@@ -38,7 +37,21 @@ const UserWidget = ({ userId, picturePath }) => {
   };
 
   const updateNetwork = async () => {
-    // updates db user model with new url string for the network key
+    const response = await fetch(`http://localhost:3001/users/${userId}/network`, {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        network: url
+      })
+    });
+
+    console.log(response)
+
+    const data = await response.json();
+    setUser(data);
     setEditNetwork(false)
     setUrl('')
   }
