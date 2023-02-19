@@ -61,9 +61,8 @@ const CommentsWidget = (props) => {
   return (
     <Box mt='0.5rem'>
       {comments.map((comment, i) => (
-        <>
+        <Box key={`${comment}-${i}`}>
           <Box
-            key={`${name}-${i}`}
             sx={{
               display: 'flex',
               flexDirection: 'row',
@@ -89,7 +88,7 @@ const CommentsWidget = (props) => {
             </Typography>
           </Box>
           <Divider />
-        </>
+        </Box>
       ))
       }
       <FlexBetween>
