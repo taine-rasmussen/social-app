@@ -2,6 +2,8 @@ import express from 'express';
 import {
   getUser,
   getAll,
+  updateSocial,
+  updateNetwork,
   getUserFriends,
   addRemoveFriend
 } from '../Controllers/Users.js';
@@ -15,6 +17,8 @@ router.get('/', verifyToken, getAll);
 router.get('/:id/friends', verifyToken, getUserFriends)
 
 // patch route
+router.patch('/:id/network', verifyToken, updateNetwork);
 router.patch('/:id/:friendId', verifyToken, addRemoveFriend);
+router.patch('/:id/social', verifyToken, updateSocial);
 
 export default router

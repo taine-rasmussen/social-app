@@ -36,7 +36,7 @@ const CommentsWidget = (props) => {
   const medium = palette.neutral.medium;
 
   const patchComment = async () => {
-    const resposne = await fetch(`http://localhost:3001/posts/${postId}/comment`, {
+    const response = await fetch(`http://localhost:3001/posts/${postId}/comment`, {
       method: 'PATCH',
       headers: {
         Authorization: `Bearer ${token}`,
@@ -48,7 +48,7 @@ const CommentsWidget = (props) => {
         name: fullName
       })
     });
-    const updatedPost = await resposne.json();
+    const updatedPost = await response.json();
     dispatch(setPost({ post: updatedPost }));
     setNewComment('');
     if (isProfile) {

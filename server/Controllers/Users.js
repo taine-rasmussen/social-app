@@ -11,6 +11,35 @@ export const getUser = async (req, res) => {
   }
 };
 
+
+export const updateNetwork = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const {
+      network
+    } = req.body;
+    const updatedNetwork = await User.findByIdAndUpdate(
+      id,
+      { network: network }
+    );
+    res.status(200).json(updatedNetwork);
+  } catch (err) {
+    res.status(404).json({ message: err.message })
+  }
+};
+
+export const updateSocial = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findById(id);
+
+
+
+  } catch (err) {
+    res.status(404).json({ message: err.message })
+  }
+};
+
 export const getAll = async (req, res) => {
   try {
     const allUsers = await User.find()
