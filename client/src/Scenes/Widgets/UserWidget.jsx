@@ -1,6 +1,8 @@
 import DownloadDoneOutlinedIcon from '@mui/icons-material/DownloadDoneOutlined';
 import { Box, Typography, Divider, useTheme, InputBase } from '@mui/material';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import WidgetWrapper from 'Components/WidgetWrapper';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import FlexBetween from 'Components/FlexBetween';
 import { useNavigate } from 'react-router-dom';
 import UserImage from 'Components/UserImage';
@@ -53,7 +55,17 @@ const UserWidget = ({ userId, picturePath }) => {
   }
 
   const updateSocial = async () => {
-    // updates db user model with new url string for the social key
+    const response = await fetch(`http://localhost:3001/users/${userId}/social`, {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        social: url
+      }),
+    });
+    getUser();
     setEditSocial(false)
     setUrl('')
   }
@@ -72,7 +84,8 @@ const UserWidget = ({ userId, picturePath }) => {
     firstName,
     lastName,
     location,
-    network
+    network,
+    social
   } = user;
 
   return (
@@ -152,7 +165,7 @@ const UserWidget = ({ userId, picturePath }) => {
           </Typography>
         <FlexBetween gap='1rem' mb='0.5rem' height='50px'>
           <FlexBetween gap='1rem'>
-            <img src='../assets/linkedin.png' alt='linkedin' />
+            <LinkedInIcon sx={{ fontSize: '2.5rem' }} />
             <Box>
               {editNetwork ? (
                 <InputBase
@@ -207,7 +220,7 @@ const UserWidget = ({ userId, picturePath }) => {
         </FlexBetween>
         <FlexBetween gap='1rem' height='50px'>
           <FlexBetween gap='1rem'>
-            <img src='../assets/twitter.png' alt='twitter' />
+            < GitHubIcon sx={{ fontSize: '2.5rem' }} />
             <Box>
               {editSocial ? (
                 <InputBase
@@ -223,7 +236,17 @@ const UserWidget = ({ userId, picturePath }) => {
                 />
               ) : (
                 <a href={social} target='_blank'>
-                  <Typography color={main} fontWeight='500'>Twitter</Typography>
+                  <Typography
+                    color={main}
+                    fontWeight='500'
+                    sx={{
+                      '&:hover': {
+                        color: palette.primary.main
+                      }
+                    }}
+                  >
+                    Github
+                  </Typography>
                   <Typography color={medium}>Social Network</Typography>
                 </a>
               )}
