@@ -168,7 +168,17 @@ const UserWidget = ({ userId, picturePath }) => {
                 />
               ) : (
                 <a href={network} target='_blank'>
-                  <Typography color={main} fontWeight='500'>Linkedin</Typography>
+                  <Typography
+                    color={main}
+                    fontWeight='500'
+                    sx={{
+                      '&:hover': {
+                        color: palette.primary.main
+                      }
+                    }}
+                  >
+                    Linkedin
+                  </Typography>
                   <Typography color={medium}>Network Platform</Typography>
                 </a>
               )}
@@ -177,7 +187,7 @@ const UserWidget = ({ userId, picturePath }) => {
           {editNetwork ? (
             <DownloadDoneOutlinedIcon
               sx={{
-                color: main,
+                color: url.length > 0 ? palette.primary.main : main,
                 '&:hover': { cursor: 'pointer' }
               }}
               onClick={updateNetwork}
