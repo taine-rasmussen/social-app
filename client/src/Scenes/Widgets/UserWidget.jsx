@@ -47,7 +47,6 @@ const UserWidget = ({ userId, picturePath }) => {
         network: url
       }),
     });
-    const data = await response.json();
     getUser();
     setEditNetwork(false)
     setUrl('')
