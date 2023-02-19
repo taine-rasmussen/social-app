@@ -48,9 +48,7 @@ const UserWidget = ({ userId, picturePath }) => {
       }),
     });
     const data = await response.json();
-    console.log(data)
-
-    setUser(data);
+    getUser();
     setEditNetwork(false)
     setUrl('')
   }
@@ -170,7 +168,7 @@ const UserWidget = ({ userId, picturePath }) => {
                 />
               ) : (
                 <>
-                  <Typography color={main} fontWeight='500'>Linkedin</Typography>
+                  <Typography color={main} fontWeight='500'>Linkedin {user.network}</Typography>
                   <Typography color={medium}>Network Platform</Typography>
                 </>
               )}

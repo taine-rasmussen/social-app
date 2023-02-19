@@ -18,18 +18,10 @@ export const updateNetwork = async (req, res) => {
     const {
       network
     } = req.body;
-    const user = await User.findById(id);
-
-
-    console.log(user, req.body)
-
     const updatedNetwork = await User.findByIdAndUpdate(
       id,
       { network: network }
     );
-
-    console.log(updatedNetwork)
-
     res.status(200).json(updatedNetwork);
   } catch (err) {
     res.status(404).json({ message: err.message })
