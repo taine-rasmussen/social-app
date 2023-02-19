@@ -31,10 +31,14 @@ export const updateNetwork = async (req, res) => {
 export const updateSocial = async (req, res) => {
   try {
     const { id } = req.params;
-    const user = await User.findById(id);
-
-
-
+    const {
+      social
+    } = req.body;
+    const updatedSocial = await User.findByIdAndUpdate(
+      id,
+      { social: social }
+    );
+    res.status(200).json(updatedSocial);
   } catch (err) {
     res.status(404).json({ message: err.message })
   }

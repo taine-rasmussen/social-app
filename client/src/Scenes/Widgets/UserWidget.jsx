@@ -222,17 +222,17 @@ const UserWidget = ({ userId, picturePath }) => {
                   }}
                 />
               ) : (
-                <>
+                <a href={social} target='_blank'>
                   <Typography color={main} fontWeight='500'>Twitter</Typography>
                   <Typography color={medium}>Social Network</Typography>
-                </>
+                </a>
               )}
             </Box>
           </FlexBetween>
           {editSocial ? (
             <DownloadDoneOutlinedIcon
               sx={{
-                color: main,
+                color: url.length > 0 ? palette.primary.main : main,
                 '&:hover': { cursor: 'pointer' }
               }}
               onClick={updateSocial}
