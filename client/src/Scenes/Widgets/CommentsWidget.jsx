@@ -79,7 +79,10 @@ const CommentsWidget = (props) => {
                   textDecorationLine: 'underline'
                 }
               }}
-              onClick={() => { navigate(`/profile/${comment.id}`) }}
+              onClick={() => {
+                navigate(`/profile/${comment.id}`)
+                navigate(0)
+              }}
             >
               {`${comment.name}:`}
             </Typography>
