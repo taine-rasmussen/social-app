@@ -1,5 +1,3 @@
-**This site was built using :**
-
  **Front end packages**
 - [Material UI](https://mui.com/material-ui/getting-started/installation/)
 - [React](https://reactjs.org/)
