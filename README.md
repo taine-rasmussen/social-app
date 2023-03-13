@@ -37,3 +37,9 @@ React MERN Full Stack Social Media App
 <img width="1379" alt="social1 png 17-43-54-667" src="https://user-images.githubusercontent.com/82087605/224725321-d59cc4df-ac7a-45c4-ab0a-e03374a88d50.png">
 
 ![socialapp 5 36 24 PM](https://user-images.githubusercontent.com/82087605/224725360-2efabb24-c506-4dc5-89cc-4a99ff6bb509.png)
+
+
+**Run locally**
+- clone your own version of this repo
+- Create two new tabs in your terminal - One at for the client folder and another for the server folder
+- Running 'npm start' for both will spin up both the front end and get the node server running
