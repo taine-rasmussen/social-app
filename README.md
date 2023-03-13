@@ -28,6 +28,10 @@ MERN Full Stack Social Media App
 - [bcrypt](https://www.npmjs.com/package/bcrypt)
 - [Jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
 
+**Project goals**
+
+- Through this project, my aim was to expand my knowledge and expertise in the MERN stack by building a comprehensive full-stack application that showcases my proficiency with React and MongoDB. I sought to challenge myself by taking on a larger-scale project that involved designing and implementing controllers and routes, allowing me to deepen my understanding of these crucial components of web development. By working with the MERN stack, I aimed to gain practical experience in building dynamic, responsive, and scalable applications that can effectively meet real-world needs.
+
 **Features**
 - Create account with Auth flow complete with password hashing using [bcrypt](https://www.npmjs.com/package/bcrypt) & [JWT](https://github.com/auth0/node-jsonwebtoken)
 - [Redux persist](https://github.com/rt2zz/redux-persist) allowing us to save user data to local storage providing a consistant user flow
@@ -37,10 +41,6 @@ MERN Full Stack Social Media App
 - Timeline and profile view
 - Mobile responsive
 - Protected routes using [JWT](https://github.com/auth0/node-jsonwebtoken)
-
-**Project goals**
-
-- Through this project, my aim was to expand my knowledge and expertise in the MERN stack by building a comprehensive full-stack application that showcases my proficiency with React and MongoDB. I sought to challenge myself by taking on a larger-scale project that involved designing and implementing controllers and routes, allowing me to deepen my understanding of these crucial components of web development. By working with the MERN stack, I aimed to gain practical experience in building dynamic, responsive, and scalable applications that can effectively meet real-world needs.
 
 
 <img width="1379" alt="social1 png 17-43-54-667" src="https://user-images.githubusercontent.com/82087605/224725321-d59cc4df-ac7a-45c4-ab0a-e03374a88d50.png">
