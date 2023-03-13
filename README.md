@@ -17,6 +17,7 @@ React MERN Full Stack Social Media App
 - [Mongoose](https://github.com/Automattic/mongoose)
 - [Jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
 - [Multer](https://github.com/expressjs/multer)
+- [bcrypt](https://www.npmjs.com/package/bcrypt)
 
 <img width="1379" alt="social1 png 17-43-54-667" src="https://user-images.githubusercontent.com/82087605/224725321-d59cc4df-ac7a-45c4-ab0a-e03374a88d50.png">
 
