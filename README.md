@@ -23,3 +23,12 @@ React MERN Full Stack Social Media App
 
 ![socialapp 5 36 24 PM](https://user-images.githubusercontent.com/82087605/224725360-2efabb24-c506-4dc5-89cc-4a99ff6bb509.png)
 
+**Features**
+- Create account with Auth flow complete with password hashing using bcrypt](https://www.npmjs.com/package/bcrypt)
+- [JWT](https://github.com/auth0/node-jsonwebtoken) & [Redux persist](https://github.com/rt2zz/redux-persist) allowing us to save user data to local storage providing a consistant user flow
+- Create new posts support both text and image upload using [React dropzone](https://react-dropzone.js.org/)
+- Engage with content by liking and commenting on posts
+- Add / Remove friends
+- Timeline and profile view
+- Mobile responsive
+
