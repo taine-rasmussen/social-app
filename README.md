@@ -1,4 +1,4 @@
-React MERN Full Stack Social Media App
+MERN Full Stack Social Media App
  
  **Front end packages**
 - [Material UI](https://mui.com/material-ui/getting-started/installation/)
