@@ -1,5 +1,9 @@
-Tech used:
+**Tech used:**
 
+
+
+
+[Material UI](https://mui.com/material-ui/getting-started/installation/)
 Material UI: https://mui.com/material-ui/getting-s...
 Redux Toolkit: https://redux-toolkit.js.org/introduc...
 React Router: https://reactrouter.com/en/v6.3.0/get...
