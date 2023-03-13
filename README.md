@@ -1,23 +1,32 @@
 MERN Full Stack Social Media App
- 
- **Front end packages**
-- [Material UI](https://mui.com/material-ui/getting-started/installation/)
+
+**MERN**
+- [MongoDB](https://www.mongodb.com/)
+- [Express](https://expressjs.com/)
 - [React](https://reactjs.org/)
+- [Node](https://nodejs.org/en/download/)
+
+**Styling**
+- [Material UI](https://mui.com/material-ui/getting-started/installation/)
+
+**Navigation**
 - [React Router](https://reactrouter.com/en/v6.3.0/getting-started/installation)
-- [React dropzone](https://react-dropzone.js.org/)
-- [Redux Toolkit](https://redux-toolkit.js.org/introduction/getting-started)
-- [Redux persist](https://github.com/rt2zz/redux-persist)
+
+**Form validation**
 - [Formik](https://formik.org/docs/overview)
 - [Yup](https://github.com/jquense/yup)
 
- **Back end packages**
-- [Node](https://nodejs.org/en/download/)
-- [Nodemon](https://github.com/remy/nodemon)
-- [MongoDB](https://www.mongodb.com/)
-- [Mongoose](https://github.com/Automattic/mongoose)
-- [Jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
+**State management**
+- [Redux Toolkit](https://redux-toolkit.js.org/introduction/getting-started)
+- [Redux persist](https://github.com/rt2zz/redux-persist)
+
+**Image upload**
+- [React dropzone](https://react-dropzone.js.org/)
 - [Multer](https://github.com/expressjs/multer)
+
+**Auth**
 - [bcrypt](https://www.npmjs.com/package/bcrypt)
+- [Jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
 
 **Features**
 - Create account with Auth flow complete with password hashing using [bcrypt](https://www.npmjs.com/package/bcrypt)
