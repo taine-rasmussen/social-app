@@ -29,8 +29,8 @@ MERN Full Stack Social Media App
 - [Jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
 
 **Features**
-- Create account with Auth flow complete with password hashing using [bcrypt](https://www.npmjs.com/package/bcrypt)
-- [JWT](https://github.com/auth0/node-jsonwebtoken) & [Redux persist](https://github.com/rt2zz/redux-persist) allowing us to save user data to local storage providing a consistant user flow
+- Create account with Auth flow complete with password hashing using [bcrypt](https://www.npmjs.com/package/bcrypt) & [JWT](https://github.com/auth0/node-jsonwebtoken) & 
+- [Redux persist](https://github.com/rt2zz/redux-persist) allowing us to save user data to local storage providing a consistant user flow
 - Create new posts support both text and image upload using [React dropzone](https://react-dropzone.js.org/)
 - Engage with content by liking and commenting on posts
 - Add / Remove friends
