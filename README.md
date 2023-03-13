@@ -48,6 +48,11 @@ MERN Full Stack Social Media App
 ![socialapp 5 36 24 PM](https://user-images.githubusercontent.com/82087605/224725360-2efabb24-c506-4dc5-89cc-4a99ff6bb509.png)
 
 
+**Data structure**
+
+<img width="760" alt="data models" src="https://user-images.githubusercontent.com/82087605/224788450-ba78aa8e-997f-40e9-a26f-92c83bcd6394.png">
+
+
 **Run locally**
 - clone your own version of this repo
 - Create two new tabs in your terminal - One at for the client folder and another for the server folder
