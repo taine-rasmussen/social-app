@@ -2,7 +2,7 @@
 
 ## Project goals
 
-- Through this project, my aim was to expand my knowledge and expertise in the MERN stack by building a comprehensive full-stack application that showcases my proficiency with React and MongoDB. I sought to challenge myself by taking on a larger-scale project that involved designing and implementing controllers and routes, allowing me to deepen my understanding of these crucial components of web development. By working with the MERN stack, I aimed to gain practical experience in building dynamic, responsive, and scalable applications that can effectively meet real-world needs.
+- Through this project, my aim was to expand my knowledge and expertise in the MERN stack by building a comprehensive full-stack application that showcases my proficiency with React and MongoDB. I wanted to challenge myself by taking on a larger-scale project that involved designing and implementing controllers and routes, allowing me to deepen my understanding of these components of web development. By working with the MERN stack, I aimed to gain practical experience in building dynamic, responsive, and scalable applications that can effectively meet real-world needs.
 
 ## Features
 - Create account with Auth flow complete with password hashing using [bcrypt](https://www.npmjs.com/package/bcrypt) & [JWT](https://github.com/auth0/node-jsonwebtoken)
