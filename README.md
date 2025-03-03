@@ -1,4 +1,4 @@
-# MERN Full Stack Social Media App
+# MERN Stack Social Media App
 
 ## Features
 - Create account with Auth flow complete with password hashing using [bcrypt](https://www.npmjs.com/package/bcrypt) & [JWT](https://github.com/auth0/node-jsonwebtoken)
