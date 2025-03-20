@@ -10,8 +10,6 @@
 - Mobile responsive
 - Protected routes using [JWT](https://github.com/auth0/node-jsonwebtoken)
 
-## Whats running it all??
-
 ### MERN
 - [MongoDB](https://www.mongodb.com/)
 - [Express](https://expressjs.com/)
@@ -49,10 +47,4 @@
 
 ## Data structure
 
-<img width="760" alt="data models" src="https://user-images.githubusercontent.com/82087605/224788450-ba78aa8e-997f-40e9-a26f-92c83bcd6394.png">
-
-
-## Run locally
-- clone your own version of this repo
-- Run ```npm start``` in both the client and server folders
-- Create user following the register form prompts before logging in and exploring
+<img width="760" alt="data models" src="https://user-images.githubusercontent.com/82087605/224788450-ba78aa8e-997f-40e9-a26f-92c83bcd6394.
