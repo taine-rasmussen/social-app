@@ -47,4 +47,4 @@
 
 ## Data structure
 
-<img width="760" alt="data models" src="https://user-images.githubusercontent.com/82087605/224788450-ba78aa8e-997f-40e9-a26f-92c83bcd6394. />
+<img width="760" alt="data models" src="https://user-images.githubusercontent.com/82087605/224788450-ba78aa8e-997f-40e9-a26f-92c83bcd6394." />
